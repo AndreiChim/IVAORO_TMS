@@ -16,7 +16,7 @@ if($_GET['IVAOTOKEN'] && $_GET['IVAOTOKEN'] !== 'error') {
         //check if user already in our own database
         $id = $xml[0]->vid;
         $sql = "SELECT * FROM $tbl_name WHERE ID = '$id'";
-        $result = mysqli_query($con,$sql, $con);
+        $result = mysqli_query($con,$sql);
         $count = mysqli_num_rows($result);
         $row = mysqli_fetch_array($result);
         
