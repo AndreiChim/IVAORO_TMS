@@ -1,6 +1,0 @@
-[19/May/2018:15:36:17] (admin_dataprotection) 268684/YES/19.05.2018 15:36:17
-[19/May/2018:15:37:22] (admin_dataprotection) 335177/YES/19.05.2018 15:37:22
-[20/May/2018:03:58:16] (admin_dataprotection) 332198/YES/20.05.2018 03:58:16
-[20/May/2018:08:18:45] (admin_dataprotection) 508320/YES/20.05.2018 08:18:45
-[01/Jun/2018:11:21:30] (admin_dataprotection) 361327/YES/01.06.2018 11:21:30
-[15/Nov/2018:18:50:00] (admin_dataprotection) 332198/YES/15.11.2018 18:50:00
