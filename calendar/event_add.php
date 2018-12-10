@@ -3,8 +3,8 @@ require_once("includes/config.php");
 
 session_start();
 
-$db_connection = mysql_connect ($DBHost, $DBUser, $DBPass) OR die (mysql_error());  
-$db_select = mysql_select_db ($DBName) or die (mysql_error());
+$con = mysqli_connect ($DBHost, $DBUser, $DBPass) OR die (mysqli_error($con));
+$db_select = mysqli_select_db($con,$DBName) or die (mysqli_error($con));
 
 if($use_auth)
 {
@@ -13,7 +13,7 @@ if($use_auth)
 		if ((!isset($_POST['USER'])) AND (!isset($_POST['PASS']))) {
 		?>
 		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-		<html>
+		<html lang="en">
 		<head>
 		<title>PHPCalendar - Add Event</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -55,8 +55,8 @@ if($use_auth)
 		ELSE
 		{
 			$query = "SELECT admin_id FROM ".$TBL_PR."admins WHERE admin_username='".addslashes($_POST['USER'])."' AND admin_password='".addslashes(md5($_POST['PASS']))."' LIMIT 1";
-			$query_result = mysql_query ($query);
-			while ($info = mysql_fetch_array($query_result))
+			$query_result = mysqli_query($con,$query);
+			while ($info = mysqli_fetch_array($query_result))
 			{
 				$admin_id = $info['admin_id'];
 			}
@@ -81,11 +81,11 @@ IF(isset($_POST['submit']))
 	$_POST['description'] = substr($_POST['description'],0,500);
 	$_POST['title'] = substr($_POST['title'],0,30);
 
-	mysql_query("INSERT INTO $db_table ( `event_id` , `event_day` , `event_month` , `event_year` , `event_time` , `event_title` , `event_desc` ) VALUES ('', '".addslashes($_POST['day'])."', '".addslashes($_POST['month'])."', '".addslashes($_POST['year'])."', '".addslashes($_POST['hour'].":".$_POST['minute'])."', '".addslashes($_POST['title'])."', '".addslashes($_POST['description'])."')");
+	mysqli_query($con,"INSERT INTO $db_table ( `event_id` , `event_day` , `event_month` , `event_year` , `event_time` , `event_title` , `event_desc` ) VALUES ('', '".addslashes($_POST['day'])."', '".addslashes($_POST['month'])."', '".addslashes($_POST['year'])."', '".addslashes($_POST['hour'].":".$_POST['minute'])."', '".addslashes($_POST['title'])."', '".addslashes($_POST['description'])."')");
 	$_POST['month'] = $_POST['month'] + 1;
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html lang="en">
 <head>
 <title>Easy Calendar - Add Event</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -112,7 +112,7 @@ ELSE
 {
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html lang="en">
 <head>
 <title>Calendar - Add Event</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">

@@ -9,8 +9,8 @@ if($_SESSION['login'] == ''){
 include('config.php');
 $tbl_name = 'training_requests';
 
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: ' . mysql_error());
-mysql_select_db($db_name, $con) or die('Cannot select database: ' . mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: ' . mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: ' . mysqli_error($con));
 
 $deadlines1 = $_POST['deadline1'];
 $deadlines2 = $_POST['deadline2'];
@@ -20,8 +20,8 @@ $email = $_POST['email'];
 $name = $_POST['name'];
 
 $sql = "SELECT * FROM $tbl_name WHERE Tracking = '$tracking'";
-$result = mysql_query($sql);
-$training_request = mysql_fetch_array($result);
+$result = mysqli_query($con,$sql);
+$training_request = mysqli_fetch_array($result);
 $type1 = $training_request['Type1'];
 
 if($_POST['deadline1'] == '' && $_POST['deadline2'] == '' && $_POST['deadline3'] == ''){
@@ -31,7 +31,7 @@ else{
     if(isset($_POST['submit'])){
         if($deadlines1 != ''){
             $sql = "UPDATE $tbl_name SET Deadlines1 = '$deadlines1' WHERE Tracking = '$tracking'";
-            $result = mysql_query($sql);
+            $result = mysqli_query($con,$sql);
             header("location:admin.php");
         }
         else{
@@ -39,12 +39,12 @@ else{
         }
         if($deadlines2 != ''){
             $sql = "UPDATE $tbl_name SET Deadlines2 = '$deadlines2' WHERE Tracking = '$tracking'";
-            $result = mysql_query($sql);
+            $result = mysqli_query($con,$sql);
             header("location:admin.php");
         }
         if($deadlines3 != ''){
             $sql = "UPDATE $tbl_name SET Deadlines3 = '$deadlines3' WHERE Tracking = '$tracking'";
-            $result = mysql_query($sql);
+            $result = mysqli_query($con,$sql);
             header("location:admin.php");
         }
         $to = $email;
@@ -84,7 +84,7 @@ You have received this email because you gave your consent to such usage of your
         // send mail
         mail($to, $subject, $message, $header);
     }
-    mysql_close($con);
+    mysqli_close($con);
 
 }
 

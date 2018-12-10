@@ -56,18 +56,18 @@ $username = 'ro-div_roivao';
 $password = 'roivaoro123';
 $db_name = 'ro-div_tms';
 
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: '. mysql_error());
-mysql_select_db($db_name) or die('Cannot select database: '. mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
 
 $sql = "SELECT * FROM `training_requests` WHERE DATE(STR_TO_DATE(Deadlines1,'%d.%m.%Y %H:%i')) = DATE(DATE_ADD(NOW(), INTERVAL 1 DAY)) AND Chosen = 'YES'";
-$result = mysql_query($sql);
+$result = mysqli_query($con,$sql);
 
-echo (mysql_num_rows($result));
+echo (mysqli_num_rows($result));
 
 // write message to the log file
-$log->lwrite(mysql_num_rows($result) . " mails to send today " . date("Y-m-d"));
+$log->lwrite(mysqli_num_rows($result) . " mails to send today " . date("Y-m-d"));
 
-while($training_request = mysql_fetch_array($result)){
+while($training_request = mysqli_fetch_array($result)){
 	
             $to = stripslashes($training_request['Email']);
             $name = $training_request['Name'];

@@ -9,27 +9,27 @@ if($_SESSION['login'] == ''){
 include('config.php');
 include('Logging.php');
 
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: '. mysql_error());
-mysql_select_db($db_name) or die('Cannot select database: '. mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
 
 if($_GET['delete'] == 'yes'){
     $id = $_SESSION['id'];
     
     $tbl_name = 'users';
     $sql = "DELETE FROM $tbl_name WHERE ID = '$id'";
-    $result = mysql_query($sql);
+    $result = mysqli_query($con,$sql);
     
     $tbl_name = 'training_requests';
     $sql = "DELETE FROM $tbl_name WHERE ID = '$id'";
-    $result = mysql_query($sql);
+    $result = mysqli_query($con,$sql);
     
     $tbl_name = 'calendar_events';
     $sql = "DELETE FROM $tbl_name WHERE event_desc LIKE '%$id%'";
-    $result = mysql_query($sql);
+    $result = mysqli_query($con,$sql);
     
     $tbl_name = 'calendar_admins';
     $sql = "DELETE FROM $tbl_name WHERE admin_username = '$id'";
-    $result = mysql_query($sql);
+    $result = mysqli_query($con,$sql);
     
     $date = date('d.m.Y H:i:s');
 
@@ -52,7 +52,7 @@ if($_GET['delete'] == 'yes'){
 }
 ?>
 
-<html>
+<html lang="en">
 <head>
 	<title>IVAO Romania TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">

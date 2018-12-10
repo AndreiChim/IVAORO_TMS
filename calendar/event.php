@@ -1,18 +1,18 @@
 <?
 require_once("includes/config.php");
-$db_connection = mysql_connect ($DBHost, $DBUser, $DBPass) OR die (mysql_error());  
-$db_select = mysql_select_db ($DBName) or die (mysql_error());
+$con = mysqli_connect ($DBHost, $DBUser, $DBPass) OR die (mysqli_error($con));
+$db_select = mysqli_select_db($con,$DBName) or die (mysqli_error($con));
 $db_table = $TBL_PR . "events";
 
 $query = "SELECT * FROM $db_table WHERE event_id='$_GET[id]' LIMIT 1";
-$query_result = mysql_query ($query);
-while ($info = mysql_fetch_array($query_result)){
+$query_result = mysqli_query($con,$query);
+while ($info = mysqli_fetch_array($query_result)){
     $date = date ("l, jS F Y", mktime(0,0,0,$info['event_month'],$info['event_day'],$info['event_year']));
     $time_array = explode(":", $info['event_time']);
     $time = date ("H:i", mktime($time_array['0'],$time_array['1'],0,$info['event_month'],$info['event_day'],$info['event_year']))." UTC";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html lang="en">
 <head>
 <title>PHPCalendar - <? echo $info['event_title']; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">

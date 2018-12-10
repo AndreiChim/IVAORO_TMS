@@ -8,15 +8,15 @@ if($_SESSION['login'] == ''){
 
 include('config.php');
 
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: '. mysql_error());
-mysql_select_db($db_name) or die('Cannot select database: '. mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
 
 if(isset($_POST['submit'])){
     if($_POST['email'] != ''){
         $id = $_SESSION['id'];
         $email = $_POST['email'];
         $sql = "UPDATE users SET Email = '$email' WHERE ID = '$id'";
-        $result = mysql_query($sql);
+        $result = mysqli_query($con,$sql);
         $_SESSION['email'] = $email;
         $success = '1';
     }
@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
 
 ?>
 
-<html>
+<html lang="en">
 <head>
 	<title>IVAO Romania TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">

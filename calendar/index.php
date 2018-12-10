@@ -15,8 +15,8 @@ else
 	}
 }
 
-$db_connection = mysql_connect ($DBHost, $DBUser, $DBPass) OR die (mysql_error());  
-$db_select = mysql_select_db ($DBName) or die (mysql_error());
+$con = mysqli_connect ($DBHost, $DBUser, $DBPass) OR die (mysqli_error($con));
+$db_select = mysqli_select_db($con,$DBName) or die (mysqli_error($con));
 $db_table = $TBL_PR . "events";
 
 function getmicrotime(){ 
@@ -37,8 +37,8 @@ $month = addslashes($_GET['month'] - 1);
 $year = addslashes($_GET['year']);
 
 $query = "SELECT event_id,event_title,event_day,event_time FROM $db_table WHERE event_month='$month' AND event_year='$year' ORDER BY event_time";
-$query_result = mysql_query ($query);
-while ($info = mysql_fetch_array($query_result))
+$query_result = mysqli_query($con,$query);
+while ($info = mysqli_fetch_array($query_result))
 {
     $day = $info['event_day'];
     $event_id = $info['event_id'];
@@ -76,7 +76,7 @@ IF($_GET['month'] == 2){
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html lang="en">
 <head>
 <title>PHPCalendar</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">

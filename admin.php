@@ -15,7 +15,7 @@ if($_SESSION['admin_dataprotection'] == 'NO'){
 
 ?>
 
-<html>
+<html lang="en">
 <head>
 	<title>IVAO Romania TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
@@ -35,12 +35,12 @@ if($_SESSION['admin_dataprotection'] == 'NO'){
 include('config.php');
 $tbl_name = 'training_requests';
 
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: '. mysql_error());
-mysql_select_db($db_name) or die('Cannot select database: '. mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
 
 $sql = "SELECT * FROM $tbl_name WHERE ReportStatus = 'Pending'";
 
-$result = mysql_query($sql) or die(mysql_error());
+$result = mysqli_query($con,$sql) or die(mysqli_error($con));
 
 ?>
 
@@ -68,7 +68,7 @@ $result = mysql_query($sql) or die(mysql_error());
 		</td>
 	</tr>
 	<?php
-	while($row = mysql_fetch_array($result)){ 
+	while($row = mysqli_fetch_array($result)){
 		if($row['Isvisible'] == 'YES'){?>
 	<tr>
 		<td class='tablevalue'>
@@ -97,20 +97,20 @@ $result = mysql_query($sql) or die(mysql_error());
 				}
 				else{
 					if($deadlines1 != 'NA' && $deadlines2 != 'NA' && $deadlines3 != 'NA'){
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed deadlines: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "<option value='".$deadlines3."'>".$deadlines3."</option>";
 						echo "</select>";
 					}
 					elseif($deadlines1 != 'NA' && $deadlines2 != 'NA'){
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed deadlines: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "</select>";
 					}
 					elseif($deadlines1 != 'NA'){
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed deadlines: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "</select>";
 					}
@@ -118,10 +118,10 @@ $result = mysql_query($sql) or die(mysql_error());
 						echo "ERROR. Contact the administrator!";
 					}
 				}
-			} 
+			}
 			else{
 				echo $deadlines1;
-			} 
+			}
 		}
 		elseif($row['Trainer'] == 'NA'){
 			echo "<span class='pending'>Please assume the request first!</span>";
@@ -133,20 +133,20 @@ $result = mysql_query($sql) or die(mysql_error());
 				}
 				else{
 					if($deadlines1 != 'NA' && $deadlines2 != 'NA' && $deadlines3 != 'NA'){
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed deadlines: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "<option value='".$deadlines3."'>".$deadlines3."</option>";
 						echo "</select>";
 					}
 					elseif($deadlines1 != 'NA' && $deadlines2 != 'NA'){
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed deadlines: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "</select>";
 					}
 					else{
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed deadlines: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "</select>";
 					}
@@ -195,7 +195,7 @@ $result = mysql_query($sql) or die(mysql_error());
 <?php
 $sql = "SELECT * FROM $tbl_name WHERE ReportStatus = 'Filed'";
 
-$result = mysql_query($sql) or die(mysql_error());
+$result = mysqli_query($con,$sql) or die(mysqli_error($con));
 ?>
 
 <!-- SECOND TABLE -->
@@ -224,7 +224,7 @@ $result = mysql_query($sql) or die(mysql_error());
 		</td>
 	</tr>
 	<?php
-	while($row = mysql_fetch_array($result)){
+	while($row = mysqli_fetch_array($result)){
 		if($row['Isvisible'] == 'YES'){ ?>
 	<tr>
 		<td class='tablevalue'>

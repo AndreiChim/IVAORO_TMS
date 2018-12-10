@@ -7,7 +7,7 @@ if($_SESSION['login'] == ''){
 
 ?>
 
-<html>
+<html lang="en">
 <head>
 	<title>IVAO Romania TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
@@ -26,8 +26,8 @@ if($_SESSION['login'] == ''){
 include('config.php');
 $tbl_name = 'training_requests';
 
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: ' . mysql_error());
-mysql_select_db($db_name, $con) or die('Cannot select database: ' . mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: ' . mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: ' . mysqli_error($con));
 
 $id = $_SESSION['id'];
 $name = $_SESSION['name'];
@@ -41,8 +41,8 @@ $reason = nl2br($reason);
 
 $time_start = date('d.m.Y H:i:s');
 
-$reason = mysql_real_escape_string($reason);
-$email = mysql_real_escape_string($email);
+$reason = mysqli_real_escape_string($con,$reason);
+$email = mysqli_real_escape_string($con,$email);
 
 if(isset($_POST['submit'])){
 	if(empty($type1) || empty($type2) || empty($airport) || empty($reason) || empty($email)){
@@ -52,18 +52,18 @@ if(isset($_POST['submit'])){
 	else{
 		$sql = "INSERT INTO $tbl_name (ID, Name, Email, Type1, Type2, Rating, Airport, Reason, Time_start)
 			VALUES ('$id', '$name', '$email', '$type1', '$type2', '$rating', '$airport', '$reason', '$time_start')";
-		$result = mysql_query($sql) or die(mysql_error());
+		$result = mysqli_query($con,$sql) or die(mysqli_error($con));
         
         $sql = "SELECT * FROM $tbl_name WHERE ID = '$id' AND Time_start = '$time_start'";
-        $result = mysql_query($sql);
-        $training_request = mysql_fetch_array($result);
+        $result = mysqli_query($con,$sql);
+        $training_request = mysqli_fetch_array($result);
         $tracking = $training_request['Tracking'];
-        
+
         $tbl_name = 'users';
         $sql = "UPDATE $tbl_name SET Email = '$email' WHERE ID = '$id'";
-        $result = mysql_query($sql);
+        $result = mysqli_query($con,$sql);
         $_SESSION['email'] = $email;
-        
+
         $to = $email;
         $header = "From: IVAO Romania <tms@ro.ivao.aero>" . "\r\n" . "Reply-To: ro-tc@ivao.aero, ro-tac@ivao.aero, ro-hq@ivao.aero";
         if($type1 == "EXAM"){

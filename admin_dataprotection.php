@@ -19,15 +19,15 @@ if($_SESSION['admin_dataprotection'] == 'YES'){
 include('config.php');
 include('Logging.php');
 
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: '. mysql_error());
-mysql_select_db($db_name) or die('Cannot select database: '. mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
 
 if(isset($_POST['submit'])){
     if($_POST['dataprotection_agreement'] == "YES" && $error != '1'){
         $id = $_SESSION['id'];
         $date = date('d.m.Y H:i:s');
         $sql = "UPDATE users SET admin_dataprotection = 'YES', admin_dataprotection_timestamp = '$date' WHERE ID = '$id'";
-        $result = mysql_query($sql);
+        $result = mysqli_query($con,$sql);
         $_SESSION['admin_dataprotection'] = 'YES';
         // Logging class initialization
         $log = new Logging();
@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
 
 ?>
 
-<html>
+<html lang="en">
 <head>
 	<title>IVAO Romania TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">

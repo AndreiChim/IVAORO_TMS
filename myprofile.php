@@ -12,8 +12,8 @@ if($_SESSION['member_dataprotection'] == 'NO'){
 
 include('config.php');
 
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: '. mysql_error());
-mysql_select_db($db_name) or die('Cannot select database: '. mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
     
 if(isset($_GET['id']) && $_SESSION['acces'] == 'ADMIN'){
     $id = $_GET['id'];
@@ -27,8 +27,8 @@ else{
 
 $tbl_name = "users";
 $sql = "SELECT * FROM $tbl_name WHERE ID = '$id'";
-$result = mysql_query($sql) or die(mysql_error());
-$user = mysql_fetch_array($result);
+$result = mysqli_query($con,$sql) or die(mysqli_error($con));
+$user = mysqli_fetch_array($result);
 $name = $user['Name'];
 $email = $user['Email'];
 $rating = $user['Rating'];
@@ -37,7 +37,7 @@ $acces = $user['Acces'];
 
 ?>
 
-<html>
+<html lang="en">
 <head>
 	<title>IVAO Romania TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
@@ -54,10 +54,10 @@ $acces = $user['Acces'];
 <?php
     
 if($acces == 'ADMIN'){
-	echo "<img class='rating' src='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTzdSuU9UvmeiouLVeMfMdKx8tqfpcUdoUpscKt-PtB7RCaZ3gH'>";
+	echo "<img class='rating' src='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTzdSuU9UvmeiouLVeMfMdKx8tqfpcUdoUpscKt-PtB7RCaZ3gH' alt='ADMIN'>";
 }
 else{
-	echo "<img class='rating' src='http://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg'>";
+	echo "<img class='rating' src='http://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg' alt='USER'>";
 }
 
 echo
@@ -110,9 +110,9 @@ $tbl_name = "training_requests";
 
 $sql = "SELECT * FROM $tbl_name WHERE ID = '$id' AND Deadlines1 = 'NA'";
 
-$result = mysql_query($sql) or die(mysql_error());
+$result = mysqli_query($con,$sql) or die(mysqli_error($con));
 
-$count_cancelable = mysql_num_rows($result);
+$count_cancelable = mysqli_num_rows($result);
 
 ?>
 
@@ -162,13 +162,13 @@ $count_cancelable = mysql_num_rows($result);
         <?php 
         }
         $sql = "SELECT * FROM $tbl_name WHERE ID = '$id'";
-        $result = mysql_query($sql) or die(mysql_error());
-        $count = mysql_num_rows($result);
+        $result = mysqli_query($con,$sql) or die(mysqli_error($con));
+        $count = mysqli_num_rows($result);
         ?>
 	</tr>
 	<?php
 	if($count != 0){
-		while($row = mysql_fetch_array($result)){ ?>
+		while($row = mysqli_fetch_array($result)){ ?>
 		<tr>
 			<td class='tablevalue'>
 				<?php echo $row['Tracking']; $tracking = $row['Tracking']; ?>
@@ -262,7 +262,7 @@ $count_cancelable = mysql_num_rows($result);
 	else{
 		echo "<h4>You currently don't have any training records.</h4>";
 	}
-	mysql_close($con);
+	mysqli_close($con);
 		?>
 </table>
 

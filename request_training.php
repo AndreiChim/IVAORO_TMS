@@ -12,7 +12,7 @@ if($_SESSION['member_dataprotection'] == 'NO'){
 
 ?>
 
-<html>
+<html lang="en">
 <head>
 	<title>IVAO Romania TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
