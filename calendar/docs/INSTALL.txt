@@ -1,0 +1,5 @@
+1) Upload all files to the ftp
+
+2) CHMOD includes/config.php to 0777
+
+3) Run install.php
