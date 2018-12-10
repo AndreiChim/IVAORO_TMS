@@ -1,0 +1,4 @@
+#Ignore phpstorm files
+.idea/
+#Ignore logs
+logs/
