@@ -12,8 +12,8 @@ if($_SESSION['member_dataprotection'] == 'NO'){
 
 include('config.php');
 
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: '. mysql_error());
-mysql_select_db($db_name) or die('Cannot select database: '. mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
 
 header("Content-type: text/plain");
 header("Content-Disposition: attachment; filename=mydetails.txt");
@@ -23,8 +23,8 @@ if(isset($_POST['submit'])){
     $id = $_SESSION['id'];
     $tbl_name = "users";
     $sql = "SELECT * FROM $tbl_name WHERE ID = '$id'";
-    $result = mysql_query($sql) or die(mysql_error());
-    $user = mysql_fetch_array($result);
+    $result = mysqli_query($con,$sql) or die(mysqli_error($con));
+    $user = mysqli_fetch_array($result);
     
     $name = $user['Name'];
     $email = $user['Email'];
@@ -61,10 +61,10 @@ if(isset($_POST['submit'])){
     
     $tbl_name = 'training_requests';
     $sql = "SELECT * FROM $tbl_name WHERE ID = '$id'";
-    $result = mysql_query($sql);
+    $result = mysqli_query($con,$sql);
     $xml = $xml."
     <training_requests>";
-    while($training_request = mysql_fetch_array($result)){
+    while($training_request = mysqli_fetch_array($result)){
         $xml = $xml."
         <training_request>
             <tracking>".$training_request['Tracking']."</tracking>
@@ -96,10 +96,10 @@ if(isset($_POST['submit'])){
     
     $tbl_name = 'calendar_events';
     $sql = "SELECT * FROM $tbl_name WHERE event_desc LIKE '%$id%'";
-    $result = mysql_query($sql);
+    $result = mysqli_query($con,$sql);
     $xml = $xml."
     <calendar_events>";
-    while($calendar_event = mysql_fetch_array($result)){
+    while($calendar_event = mysqli_fetch_array($result)){
         $xml = $xml."
         <calendar_event>
             <event_id>".$calendar_event['event_id']."</event_id>
@@ -116,10 +116,10 @@ if(isset($_POST['submit'])){
         
     $tbl_name = 'calendar_admins';
     $sql = "SELECT * FROM $tbl_name WHERE admin_username = '$id'";
-    $result = mysql_query($sql);
+    $result = mysqli_query($con,$sql);
     $xml = $xml."
     <calendar_admins>";
-    while($calendar_admin = mysql_fetch_array($result)){
+    while($calendar_admin = mysqli_fetch_array($result)){
         $xml = $xml."
         <calendar_admin>
             <admin_id>".$calendar_admin['admin_id']."</admin_id>

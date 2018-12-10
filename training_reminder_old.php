@@ -49,12 +49,12 @@ $username = 'ro-div_roivao';
 $password = 'roivaoro123';
 $db_name = 'ro-div_tms';
 
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: '. mysql_error());
-mysql_select_db($db_name) or die('Cannot select database: '. mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
 $tbl_name = 'training_requests';
 $sql = "SELECT * FROM $tbl_name";
-$result = mysql_query($sql);
-while($training_request = mysql_fetch_array($result)){
+$result = mysqli_query($con,$sql);
+while($training_request = mysqli_fetch_array($result)){
 	
     if($training_request['Chosen'] == 'YES'){
         $request_time = strtotime(substr($training_request['Deadlines1'], 0, 10));

@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
 <title>IVAO Romania TMS</title>
 <link rel="stylesheet" type="text/css" href="main.css">

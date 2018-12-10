@@ -4,8 +4,8 @@ include('config.php');
 $tbl_name = 'users';
 
 //connect to mysql
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: ' . mysql_error());
-mysql_select_db($db_name, $con) or die('Cannot select database: ' . mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: ' . mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: ' . mysqli_error($con));
 
 if($_GET['IVAOTOKEN'] && $_GET['IVAOTOKEN'] !== 'error') {
     $token = $_GET['IVAOTOKEN'];
@@ -16,9 +16,9 @@ if($_GET['IVAOTOKEN'] && $_GET['IVAOTOKEN'] !== 'error') {
         //check if user already in our own database
         $id = $xml[0]->vid;
         $sql = "SELECT * FROM $tbl_name WHERE ID = '$id'";
-        $result = mysql_query($sql, $con);
-        $count = mysql_num_rows($result);
-        $row = mysql_fetch_array($result);
+        $result = mysqli_query($con,$sql, $con);
+        $count = mysqli_num_rows($result);
+        $row = mysqli_fetch_array($result);
         
         if($count == 1){
             $atc_rating = $xml[0]->ratingatc;
@@ -101,13 +101,13 @@ if($_GET['IVAOTOKEN'] && $_GET['IVAOTOKEN'] !== 'error') {
             
             if($rating != stripslashes($row['Rating'])){
                 $sql = "UPDATE $tbl_name SET Rating = '$rating' WHERE ID = '$id'";
-                $result = mysql_query($sql);
+                $result = mysqli_query($con,$sql);
             }
             
             $division = utf8_decode($xml[0]->division);
             if($division != $row['Division']){
                 $sql = "UPDATE $tbl_name SET Division = '$division' WHERE ID = '$id'";
-                $result = mysql_query($sql);
+                $result = mysqli_query($con,$sql);
             }
 
             $staff = utf8_decode($xml[0]->staff);
@@ -124,7 +124,7 @@ if($_GET['IVAOTOKEN'] && $_GET['IVAOTOKEN'] !== 'error') {
             }
             if($acces != $row['Acces']) {
                 $sql = "UPDATE $tbl_name SET Acces = '$acces' WHERE ID = '$id'";
-                $result = mysql_query($sql);
+                $result = mysqli_query($con,$sql);
             }
 
             session_start();
@@ -234,7 +234,7 @@ if($_GET['IVAOTOKEN'] && $_GET['IVAOTOKEN'] !== 'error') {
             }
             
             $sql = "INSERT INTO $tbl_name (ID, Name, Rating, Division, Acces) VALUES ('$id', '$name', '$rating', '$division', '$acces')";
-            $result = mysql_query($sql);
+            $result = mysqli_query($con,$sql);
             
             header("location:ivao_login.php?IVAOTOKEN=$token");
         }
@@ -250,6 +250,6 @@ else{
     header('location: index.php');
 }
 
-mysql_close($con);
+mysqli_close($con);
 
 ?>

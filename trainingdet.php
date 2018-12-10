@@ -10,7 +10,7 @@ elseif($_SESSION['acces'] != 'ADMIN'){
 
 ?>
 
-<html>
+<html lang="en">
 <head>
 	<title>IVAO Romania TMS</title>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
@@ -40,14 +40,14 @@ elseif($_SESSION['acces'] != 'ADMIN'){
 include('config.php');
 $tbl_name = 'training_requests';
 
-$con = mysql_connect($host, $username, $password) or die('Cannot connect to database: '. mysql_error());
-mysql_select_db($db_name) or die('Cannot select database: '. mysql_error());
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
+mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
 
 $tracking = $_GET['tracking'];
 
 $sql = "SELECT * FROM $tbl_name WHERE Tracking = '$tracking'";
-$result = mysql_query($sql);
-$row = mysql_fetch_array($result);
+$result = mysqli_query($con,$sql);
+$row = mysqli_fetch_array($result);
 
 echo
 	"<p><a href=admin.php>Return to the Admin Center</a></p>
