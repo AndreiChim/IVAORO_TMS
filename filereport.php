@@ -55,6 +55,10 @@ Should you have any questions or feedback regarding your training, please reply 
 Kind regards,
 
 IVAO Romania Training Department
+
+---
+
+You have received this email because you gave your consent to such usage of your email address by confirming a prompt before being able to access the features of our website: ro.ivao.aero/tms. If you think you should not have been the recipient of such an email, please contact us by replying to it.
 ";
 
     // message lines should not exceed 70 characters (PHP rule), so wrap it
