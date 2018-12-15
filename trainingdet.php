@@ -23,6 +23,7 @@ elseif($_SESSION['acces'] != 'ADMIN'){
   	<script src="script.js"></script>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="timepicker.css">
 	<style type="text/css">
 		div.ui-datepicker{
  			font-size:85%;
