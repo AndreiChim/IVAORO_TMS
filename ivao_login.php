@@ -4,7 +4,7 @@ include('config.php');
 $tbl_name = 'users';
 
 //connect to mysql
-$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: ' . mysqli_error($con));
+$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: ' . mysqli_connect_error());
 mysqli_select_db($con,$db_name) or die('Cannot select database: ' . mysqli_error($con));
 
 if($_GET['IVAOTOKEN'] && $_GET['IVAOTOKEN'] !== 'error') {
