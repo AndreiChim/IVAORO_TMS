@@ -121,7 +121,7 @@ echo
 				Reason
 			</td>
 			<td class='tablevalue'>".
-				stripslashes($row['Reason']).
+				stripslashes(nl2br($row['Reason'])).
 			"</td>
 		</tr>
 		<tr>

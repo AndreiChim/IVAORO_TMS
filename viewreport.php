@@ -116,7 +116,7 @@ echo "
 				Summary
 			</td>
 			<td class='tablevalue'>".
-				stripslashes($row['Summary']).
+				stripslashes(nl2br($row['Summary'])).
 			"</td>
 		</tr>
 		<tr>
@@ -124,7 +124,7 @@ echo "
 				Pros
 			</td>
 			<td class='tablevalue'>".
-				stripslashes($row['Pros']).
+				stripslashes(nl2br($row['Pros'])).
 			"</td>
 		</tr>
 		<tr>
@@ -132,7 +132,7 @@ echo "
 				Cons
 			</td>
 			<td class='tablevalue'>".
-				stripslashes($row['Cons']).
+				stripslashes(nl2br($row['Cons'])).
 			"</td>
 		</tr>
 		<tr>
@@ -140,7 +140,7 @@ echo "
 				Suggestions
 			</td>
 			<td class='tablevalue'>".
-				stripslashes($row['Suggestions']).
+				stripslashes(nl2br($row['Suggestions'])).
 			"</td>
 		</tr>
 </table>";

@@ -37,7 +37,7 @@ $type2 = $_POST['training_type2'];
 $rating = $_SESSION['rating'];
 $airport = $_POST['airport'];
 $reason = $_POST['reason'];
-$reason = nl2br($reason);
+$reason = $reason;
 
 $time_start = date('d.m.Y H:i:s');
 
