@@ -14,9 +14,11 @@ elseif($_SESSION['acces'] != 'ADMIN'){
 <head>
 	<title>IVAO Romania TMS</title>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-  	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-   	<script src="http://jqueryui.com/ui/i18n/jquery.ui.datepicker-fr.js"></script>
+  	<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
+  	<!-- <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
+   	<!-- <script src="http://jqueryui.com/ui/i18n/jquery.ui.datepicker-fr.js"></script> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js" integrity="sha256-DI6NdAhhFRnO2k51mumYeDShet3I8AKCQf/tf7ARNhI=" crossorigin="anonymous"></script>
    	<script src="jquery-ui-timepicker-addon.js"></script>
   	<script src="script.js"></script>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
