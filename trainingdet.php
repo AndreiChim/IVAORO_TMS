@@ -17,9 +17,9 @@ elseif($_SESSION['acces'] != 'ADMIN'){
   	<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
   	<!-- <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
    	<!-- <script src="http://jqueryui.com/ui/i18n/jquery.ui.datepicker-fr.js"></script> -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js" integrity="sha256-DI6NdAhhFRnO2k51mumYeDShet3I8AKCQf/tf7ARNhI=" crossorigin="anonymous"></script>
-   	<script src="jquery-ui-timepicker-addon.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="jquery-ui-timepicker-addon.js"></script>
   	<script src="script.js"></script>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="main.css">
