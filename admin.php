@@ -124,12 +124,12 @@ $result = mysqli_query($con,$sql) or die(mysqli_error($con));
 			}
 		}
 		elseif($row['Trainer'] == 'NA'){
-			echo "<span class='pending'>Please assume the request first!</span>";
+			echo "Please assume the request first!";
 		}
 		else{
 			if($row['Chosen'] == 'NO'){
 				if($deadlines1 == 'NA'){
-					echo "<span class='pending'>Pending</span>";
+					echo "Pending";
 				}
 				else{
 					if($deadlines1 != 'NA' && $deadlines2 != 'NA' && $deadlines3 != 'NA'){
