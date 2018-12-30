@@ -48,10 +48,13 @@ else{
             <label>
                 <input type='radio' name='training_type1' value='theoretical' /> Theoretical Training &nbsp
             </label>
+            <?php if(($_SESSION['atc_rating'] != "AS1" && $_SESSION['atc_rating'] != "AS2") ||
+                    ($_SESSION['pilot_rating'] != "FS1" && $_SESSION['pilot_rating'] != "FS2")){
+            ?>
             <label>
                 <input type='radio' name='training_type1' value='EXAM' /> Practical Exam
             </label>
-            <?php } ?>
+            <?php }} ?>
 		</td>
 	</tr>
 	<tr>
