@@ -124,7 +124,7 @@ $result = mysqli_query($con,$sql) or die(mysqli_error($con));
 			}
 		}
 		elseif($row['Trainer'] == 'NA'){
-			echo "Please assume the request first!";
+			echo "<span class='error'>Please assume the request first!</span>";
 		}
 		else{
 			if($row['Chosen'] == 'NO'){
