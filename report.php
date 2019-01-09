@@ -35,7 +35,11 @@ elseif($_SESSION['acces'] != 'ADMIN'){
     $row = mysqli_fetch_array($result);
 
     ?>
+<<<<<<< HEAD
     <h3>&nbsp; <?php if($_GET['submit'] == 'Modify Report') echo "Modify"; ?>Training Report&nbsp; #<?php echo $tracking; ?></h3>
+=======
+    <h3>&nbsp;<?php if($_GET['submit'] == 'Modify Report') echo "Modify"; ?>Training Report &nbsp;#<?php echo $tracking; ?></h3>
+>>>>>>> origin/master
 </div>
 <div id='content'>
 <br>
