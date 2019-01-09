@@ -116,7 +116,7 @@ echo "
 				Summary
 			</td>
 			<td class='tablevalue'>".
-				stripslashes($row['Summary']).
+				nl2br(stripslashes($row['Summary'])).
 			"</td>
 		</tr>
 		<tr>
@@ -124,7 +124,7 @@ echo "
 				Pros
 			</td>
 			<td class='tablevalue'>".
-				stripslashes($row['Pros']).
+				nl2br(stripslashes($row['Pros'])).
 			"</td>
 		</tr>
 		<tr>
@@ -132,7 +132,7 @@ echo "
 				Cons
 			</td>
 			<td class='tablevalue'>".
-				stripslashes($row['Cons']).
+				nl2br(stripslashes($row['Cons'])).
 			"</td>
 		</tr>
 		<tr>
@@ -140,7 +140,7 @@ echo "
 				Suggestions
 			</td>
 			<td class='tablevalue'>".
-				stripslashes($row['Suggestions']).
+				nl2br(stripslashes($row['Suggestions'])).
 			"</td>
 		</tr>
 </table>";
@@ -149,7 +149,7 @@ if($_SESSION['acces'] == 'ADMIN'){ ?>
 
 <form action="report.php" method='get'>
 	<input type='hidden' name='tracking' value='<?php echo $row['Tracking'] ?>' />
-    <input class='submit' type="submit" name='submit' value="Modify Report" />
+    <input class='submit' type="submit" name='submit' value="Modify Report!" />
 </form>
 
 <?php } ?>

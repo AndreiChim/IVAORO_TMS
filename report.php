@@ -20,27 +20,24 @@ elseif($_SESSION['acces'] != 'ADMIN'){
 <div id='container'>
 <?php include('banner_menu.php'); ?>
 <div id='header'>
-<h3>&nbsp Admin Center</h3>
+    <?php
+
+    include('config.php');
+    $tbl_name = 'training_requests';
+
+    $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
+    mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
+
+    $tracking = $_GET['tracking'];
+
+    $sql = "SELECT * FROM $tbl_name WHERE Tracking = '$tracking'";
+    $result = mysqli_query($con,$sql);
+    $row = mysqli_fetch_array($result);
+
+    ?>
+    <h3>&nbsp;<?php if($_GET['submit'] == 'Modify Report') echo "Modify"; ?>Training Report &nbsp;#<?php echo $tracking; ?></h3>
 </div>
 <div id='content'>
-
-<?php
-
-include('config.php');
-$tbl_name = 'training_requests';
-
-$con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
-mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
-
-$tracking = $_GET['tracking'];
-
-$sql = "SELECT * FROM $tbl_name WHERE Tracking = '$tracking'";
-$result = mysqli_query($con,$sql);
-$row = mysqli_fetch_array($result);
-
-?>
-
-<h4><?php if($_GET['submit'] == 'Modify Report') echo "Modify"; ?>Training Report &nbsp #<?php echo $tracking; ?></h4>
 
 <form id='filereport' action='filereport.php' method='post'>
 <?php
@@ -119,7 +116,7 @@ echo "
 				Please write a summary of the training process.
 			</td>
 			<td class='tablevalue'>
-				<textarea name='summary'><?php echo $row['Summary']; ?></textarea>
+				<textarea name='summary'><?php echo nl2br(stripslashes($row['Summary'])); ?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -127,7 +124,7 @@ echo "
 				Pros
 			</td>
 			<td class='tablevalue'>
-				<textarea name='pros'><?php echo $row['Pros']; ?></textarea>
+				<textarea name='pros'><?php echo nl2br(stripslashes($row['Pros'])); ?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -135,7 +132,7 @@ echo "
 				Cons
 			</td>
 			<td class='tablevalue'>
-				<textarea name='cons'><?php echo $row['Cons']; ?></textarea>
+				<textarea name='cons'><?php echo nl2br(stripslashes($row['Cons'])); ?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -143,7 +140,7 @@ echo "
 				Suggestions
 			</td>
 			<td class='tablevalue'>
-				<textarea name='suggestions'><?php echo $row['Suggestions']; ?></textarea>
+				<textarea name='suggestions'><?php echo nl2br(stripslashes($row['Suggestions'])); ?></textarea>
 			</td>
 		</tr>
 </table>

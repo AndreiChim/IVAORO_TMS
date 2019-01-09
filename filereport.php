@@ -12,13 +12,13 @@ $tbl_name = 'training_requests';
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: ' . mysqli_error($con));
 mysqli_select_db($con,$db_name) or die('Cannot select database: ' . mysqli_error($con));
 
-$summary = nl2br($_POST['summary']);
+//$summary = nl2br($_POST['summary']);
 $summary = mysqli_real_escape_string($con,$summary);
-$pros = nl2br($_POST['pros']);
+//$pros = nl2br($_POST['pros']);
 $pros = mysqli_real_escape_string($con,$pros);
-$cons = nl2br($_POST['cons']);
+//$cons = nl2br($_POST['cons']);
 $cons = mysqli_real_escape_string($con,$cons);
-$suggestions = nl2br($_POST['suggestions']);
+//$suggestions = nl2br($_POST['suggestions']);
 $suggestions = mysqli_real_escape_string($con,$suggestions);
 $tracking = $_POST['tracking'];
 
