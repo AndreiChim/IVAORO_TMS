@@ -14,7 +14,7 @@ while ($info = mysqli_fetch_array($query_result)){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <head>
-<title>PHPCalendar - <?php echo $info['event_title']; ?></title>
+<title>IVAO Romania TMS</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="images/cal.css" rel="stylesheet" type="text/css">
 </head>
@@ -24,11 +24,11 @@ while ($info = mysqli_fetch_array($query_result)){
   <tr>
     <td height="100">
 <table width="480" border="0" cellpadding="0" cellspacing="0">
-        <tr> 
-          <td><span class="eventwhen"><u><?php echo $date . " at " . $time; ?></u></span><br> 
+        <tr>
+          <td><span class="eventwhen"><u><?php echo $date . " at " . $time; ?></u></span><br>
             <br> <br> </td>
         </tr>
-        <tr> 
+        <tr>
           <td><span class="event">Event Title</span></td>
         </tr>
         <tr> 
@@ -43,9 +43,9 @@ while ($info = mysqli_fetch_array($query_result)){
         </tr>
       </table></td>
   </tr>
-  <tr>
-    <td align="right" valign="bottom"><a href="event_delete.php?<?php echo "day=$info[event_day]&month=$info[event_month]&year=$info[event_year]&id=$info[event_id]"; ?>">Delete</a></td>
-  </tr>
+<!--  <tr>-->
+<!--    <td align="right" valign="bottom"><a href="event_delete.php?--><?php //echo "day=$info[event_day]&month=$info[event_month]&year=$info[event_year]&id=$info[event_id]"; ?><!--">Delete</a></td>-->
+<!--  </tr>-->
 </table>
 </body>
 </html>
