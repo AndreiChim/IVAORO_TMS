@@ -10,7 +10,7 @@
 
 	<nav>
 		<ul>
-			<li><a href="index.php?page=home">Home</a></li>
+			<li><a href="index.php">Home</a></li>
 			<?php 
 			if(!isset($_SESSION['login'])){ ?>
 				<!-- <li><a href="index.php?page=main_login">Login</a></li>
