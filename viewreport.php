@@ -48,9 +48,9 @@ echo "
 			<td class='tablekey'>
 				Tracking Number
 			</td>
-			<td class='tablevalue'>
-				<a href='trainingdet.php?tracking=".$row['Tracking']."'>".$row['Tracking']."</a>
-			</td>
+			<td class='tablevalue'>".
+                $row['Tracking'].
+			"</td>
 		</tr>
 		<tr>
 			<td class='tablekey'>
