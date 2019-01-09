@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("includes/config.php");
 $con = mysqli_connect ($DBHost, $DBUser, $DBPass) OR die (mysqli_error($con));
 $db_select = mysqli_select_db($con,$DBName) or die (mysqli_error($con));
@@ -14,7 +14,7 @@ while ($info = mysqli_fetch_array($query_result)){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <head>
-<title>PHPCalendar - <? echo $info['event_title']; ?></title>
+<title>PHPCalendar - <?php echo $info['event_title']; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="images/cal.css" rel="stylesheet" type="text/css">
 </head>
@@ -25,28 +25,28 @@ while ($info = mysqli_fetch_array($query_result)){
     <td height="100">
 <table width="480" border="0" cellpadding="0" cellspacing="0">
         <tr> 
-          <td><span class="eventwhen"><u><? echo $date . " at " . $time; ?></u></span><br> 
+          <td><span class="eventwhen"><u><?php echo $date . " at " . $time; ?></u></span><br> 
             <br> <br> </td>
         </tr>
         <tr> 
           <td><span class="event">Event Title</span></td>
         </tr>
         <tr> 
-          <td><span class="eventdetail"><? echo $info['event_title']; ?></span><br> 
+          <td><span class="eventdetail"><?php echo $info['event_title']; ?></span><br> 
             <br></td>
         </tr>
         <tr> 
           <td><span class="event">Event Description</span></td>
         </tr>
         <tr> 
-          <td><span class="eventdetail"><? echo $info['event_desc']; ?></span><br></td>
+          <td><span class="eventdetail"><?php echo $info['event_desc']; ?></span><br></td>
         </tr>
       </table></td>
   </tr>
   <tr>
-    <td align="right" valign="bottom"><a href="event_delete.php?<? echo "day=$info[event_day]&month=$info[event_month]&year=$info[event_year]&id=$info[event_id]"; ?>">Delete</a></td>
+    <td align="right" valign="bottom"><a href="event_delete.php?<?php echo "day=$info[event_day]&month=$info[event_month]&year=$info[event_year]&id=$info[event_id]"; ?>">Delete</a></td>
   </tr>
 </table>
 </body>
 </html>
-<? } ?>
+<?php } ?>

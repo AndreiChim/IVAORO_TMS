@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("includes/config.php");
 
 session_start();
@@ -40,14 +40,14 @@ if ((!isset($_POST['USER'])) AND (!isset($_POST['PASS']))) {
         </div></td>
     </tr>
   </table>
-<input type="hidden" name="day" id="day" value="<? echo $_GET['day']; ?>">
-<input type="hidden" name="month" id="month" value="<? echo $_GET['month']; ?>">
-<input type="hidden" name="year" id="year" value="<? echo $_GET['year']; ?>">
-<input type="hidden" name="id" id="id" value="<? echo $_GET['id']; ?>">
+<input type="hidden" name="day" id="day" value="<?php echo $_GET['day']; ?>">
+<input type="hidden" name="month" id="month" value="<?php echo $_GET['month']; ?>">
+<input type="hidden" name="year" id="year" value="<?php echo $_GET['year']; ?>">
+<input type="hidden" name="id" id="id" value="<?php echo $_GET['id']; ?>">
 </form>
 </body>
 </html>
-<?
+<?php
 } 
 ELSE
 {
@@ -82,10 +82,10 @@ ELSE
                       //-->
                      </script>
                     </head>
-                    <body onLoad="javascript:redirect_to('month=<? echo $_POST['month']."&year=".$_POST['year']; ?>',1);">
+                    <body onLoad="javascript:redirect_to('month=<?php echo $_POST['month']."&year=".$_POST['year']; ?>',1);">
                     </body>
                     </html>
-		<?
+		<?php
 		exit;
 	}
 	ELSE

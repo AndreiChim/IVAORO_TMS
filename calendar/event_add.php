@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("includes/config.php");
 
 session_start();
@@ -42,14 +42,14 @@ if($use_auth)
 				</div></td>
 			</tr>
 		  </table>
-		<input type="hidden" name="day" id="day" value="<? echo $_GET['day']; ?>">
-		<input type="hidden" name="month" id="month" value="<? echo $_GET['month']; ?>">
-		<input type="hidden" name="year" id="year" value="<? echo $_GET['year']; ?>">
-		<input type="hidden" name="id" id="id" value="<? echo $_GET['id']; ?>">
+		<input type="hidden" name="day" id="day" value="<?php echo $_GET['day']; ?>">
+		<input type="hidden" name="month" id="month" value="<?php echo $_GET['month']; ?>">
+		<input type="hidden" name="year" id="year" value="<?php echo $_GET['year']; ?>">
+		<input type="hidden" name="id" id="id" value="<?php echo $_GET['id']; ?>">
 		</form>
 		</body>
 		</html>
-		<?
+		<?php
 			exit;
 		} 
 		ELSE
@@ -103,10 +103,10 @@ IF(isset($_POST['submit']))
   //-->
  </script>
 </head>
-<body onLoad="javascript:redirect_to('month=<? echo $_POST['month'].'&year='.$_POST['year']; ?>',1);">
+<body onLoad="javascript:redirect_to('month=<?php echo $_POST['month'].'&year='.$_POST['year']; ?>',1);">
 </body>
 </html>
-<?
+<?php
 }
 ELSE 
 {
@@ -125,59 +125,59 @@ ELSE
       <td width="200" height="40" valign="top"><span class="addevent">Event Date</span><br> 
         <span class="addeventextrainfo">(MM/DD/YY)</span></td>
       <td height="40" valign="top"> <select name="month" id="month">
-          <option value="1" <? IF($_GET['month'] == "1"){ echo "selected"; } ?>>01</option>
-          <option value="2" <? IF($_GET['month'] == "2"){ echo "selected"; } ?>>02</option>
-          <option value="3" <? IF($_GET['month'] == "3"){ echo "selected"; } ?>>03</option>
-          <option value="4" <? IF($_GET['month'] == "4"){ echo "selected"; } ?>>04</option>
-          <option value="5" <? IF($_GET['month'] == "5"){ echo "selected"; } ?>>05</option>
-          <option value="6" <? IF($_GET['month'] == "6"){ echo "selected"; } ?>>06</option>
-          <option value="7" <? IF($_GET['month'] == "7"){ echo "selected"; } ?>>07</option>
-          <option value="8" <? IF($_GET['month'] == "8"){ echo "selected"; } ?>>08</option>
-          <option value="9" <? IF($_GET['month'] == "9"){ echo "selected"; } ?>>09</option>
-          <option value="10" <? IF($_GET['month'] == "10"){ echo "selected"; } ?>>10</option>
-          <option value="11" <? IF($_GET['month'] == "11"){ echo "selected"; } ?>>11</option>
-          <option value="12" <? IF($_GET['month'] == "12"){ echo "selected"; } ?>>12</option>
+          <option value="1" <?php IF($_GET['month'] == "1"){ echo "selected"; } ?>>01</option>
+          <option value="2" <?php IF($_GET['month'] == "2"){ echo "selected"; } ?>>02</option>
+          <option value="3" <?php IF($_GET['month'] == "3"){ echo "selected"; } ?>>03</option>
+          <option value="4" <?php IF($_GET['month'] == "4"){ echo "selected"; } ?>>04</option>
+          <option value="5" <?php IF($_GET['month'] == "5"){ echo "selected"; } ?>>05</option>
+          <option value="6" <?php IF($_GET['month'] == "6"){ echo "selected"; } ?>>06</option>
+          <option value="7" <?php IF($_GET['month'] == "7"){ echo "selected"; } ?>>07</option>
+          <option value="8" <?php IF($_GET['month'] == "8"){ echo "selected"; } ?>>08</option>
+          <option value="9" <?php IF($_GET['month'] == "9"){ echo "selected"; } ?>>09</option>
+          <option value="10" <?php IF($_GET['month'] == "10"){ echo "selected"; } ?>>10</option>
+          <option value="11" <?php IF($_GET['month'] == "11"){ echo "selected"; } ?>>11</option>
+          <option value="12" <?php IF($_GET['month'] == "12"){ echo "selected"; } ?>>12</option>
         </select> <select name="day" id="day">
-          <option value="1" <? IF($_GET['day'] == "1"){ echo "selected"; } ?>>01</option>
-          <option value="2" <? IF($_GET['day'] == "2"){ echo "selected"; } ?>>02</option>
-          <option value="3" <? IF($_GET['day'] == "3"){ echo "selected"; } ?>>03</option>
-          <option value="4" <? IF($_GET['day'] == "4"){ echo "selected"; } ?>>04</option>
-          <option value="5" <? IF($_GET['day'] == "5"){ echo "selected"; } ?>>05</option>
-          <option value="6" <? IF($_GET['day'] == "6"){ echo "selected"; } ?>>06</option>
-          <option value="7" <? IF($_GET['day'] == "7"){ echo "selected"; } ?>>07</option>
-          <option value="8" <? IF($_GET['day'] == "8"){ echo "selected"; } ?>>08</option>
-          <option value="9" <? IF($_GET['day'] == "9"){ echo "selected"; } ?>>09</option>
-          <option value="10" <? IF($_GET['day'] == "10"){ echo "selected"; } ?>>10</option>
-          <option value="11" <? IF($_GET['day'] == "11"){ echo "selected"; } ?>>11</option>
-          <option value="12" <? IF($_GET['day'] == "12"){ echo "selected"; } ?>>12</option>
-          <option value="13" <? IF($_GET['day'] == "13"){ echo "selected"; } ?>>13</option>
-          <option value="14" <? IF($_GET['day'] == "14"){ echo "selected"; } ?>>14</option>
-          <option value="15" <? IF($_GET['day'] == "15"){ echo "selected"; } ?>>15</option>
-          <option value="16" <? IF($_GET['day'] == "16"){ echo "selected"; } ?>>16</option>
-          <option value="17" <? IF($_GET['day'] == "17"){ echo "selected"; } ?>>17</option>
-          <option value="18" <? IF($_GET['day'] == "18"){ echo "selected"; } ?>>18</option>
-          <option value="19" <? IF($_GET['day'] == "19"){ echo "selected"; } ?>>19</option>
-          <option value="20" <? IF($_GET['day'] == "20"){ echo "selected"; } ?>>20</option>
-          <option value="21" <? IF($_GET['day'] == "21"){ echo "selected"; } ?>>21</option>
-          <option value="22" <? IF($_GET['day'] == "22"){ echo "selected"; } ?>>22</option>
-          <option value="23" <? IF($_GET['day'] == "23"){ echo "selected"; } ?>>23</option>
-          <option value="24" <? IF($_GET['day'] == "24"){ echo "selected"; } ?>>24</option>
-          <option value="25" <? IF($_GET['day'] == "25"){ echo "selected"; } ?>>25</option>
-          <option value="26" <? IF($_GET['day'] == "26"){ echo "selected"; } ?>>26</option>
-          <option value="27" <? IF($_GET['day'] == "27"){ echo "selected"; } ?>>27</option>
-          <option value="28" <? IF($_GET['day'] == "28"){ echo "selected"; } ?>>28</option>
-          <option value="29" <? IF($_GET['day'] == "29"){ echo "selected"; } ?>>29</option>
-          <option value="30" <? IF($_GET['day'] == "30"){ echo "selected"; } ?>>30</option>
-          <option value="31" <? IF($_GET['day'] == "31"){ echo "selected"; } ?>>31</option>
+          <option value="1" <?php IF($_GET['day'] == "1"){ echo "selected"; } ?>>01</option>
+          <option value="2" <?php IF($_GET['day'] == "2"){ echo "selected"; } ?>>02</option>
+          <option value="3" <?php IF($_GET['day'] == "3"){ echo "selected"; } ?>>03</option>
+          <option value="4" <?php IF($_GET['day'] == "4"){ echo "selected"; } ?>>04</option>
+          <option value="5" <?php IF($_GET['day'] == "5"){ echo "selected"; } ?>>05</option>
+          <option value="6" <?php IF($_GET['day'] == "6"){ echo "selected"; } ?>>06</option>
+          <option value="7" <?php IF($_GET['day'] == "7"){ echo "selected"; } ?>>07</option>
+          <option value="8" <?php IF($_GET['day'] == "8"){ echo "selected"; } ?>>08</option>
+          <option value="9" <?php IF($_GET['day'] == "9"){ echo "selected"; } ?>>09</option>
+          <option value="10" <?php IF($_GET['day'] == "10"){ echo "selected"; } ?>>10</option>
+          <option value="11" <?php IF($_GET['day'] == "11"){ echo "selected"; } ?>>11</option>
+          <option value="12" <?php IF($_GET['day'] == "12"){ echo "selected"; } ?>>12</option>
+          <option value="13" <?php IF($_GET['day'] == "13"){ echo "selected"; } ?>>13</option>
+          <option value="14" <?php IF($_GET['day'] == "14"){ echo "selected"; } ?>>14</option>
+          <option value="15" <?php IF($_GET['day'] == "15"){ echo "selected"; } ?>>15</option>
+          <option value="16" <?php IF($_GET['day'] == "16"){ echo "selected"; } ?>>16</option>
+          <option value="17" <?php IF($_GET['day'] == "17"){ echo "selected"; } ?>>17</option>
+          <option value="18" <?php IF($_GET['day'] == "18"){ echo "selected"; } ?>>18</option>
+          <option value="19" <?php IF($_GET['day'] == "19"){ echo "selected"; } ?>>19</option>
+          <option value="20" <?php IF($_GET['day'] == "20"){ echo "selected"; } ?>>20</option>
+          <option value="21" <?php IF($_GET['day'] == "21"){ echo "selected"; } ?>>21</option>
+          <option value="22" <?php IF($_GET['day'] == "22"){ echo "selected"; } ?>>22</option>
+          <option value="23" <?php IF($_GET['day'] == "23"){ echo "selected"; } ?>>23</option>
+          <option value="24" <?php IF($_GET['day'] == "24"){ echo "selected"; } ?>>24</option>
+          <option value="25" <?php IF($_GET['day'] == "25"){ echo "selected"; } ?>>25</option>
+          <option value="26" <?php IF($_GET['day'] == "26"){ echo "selected"; } ?>>26</option>
+          <option value="27" <?php IF($_GET['day'] == "27"){ echo "selected"; } ?>>27</option>
+          <option value="28" <?php IF($_GET['day'] == "28"){ echo "selected"; } ?>>28</option>
+          <option value="29" <?php IF($_GET['day'] == "29"){ echo "selected"; } ?>>29</option>
+          <option value="30" <?php IF($_GET['day'] == "30"){ echo "selected"; } ?>>30</option>
+          <option value="31" <?php IF($_GET['day'] == "31"){ echo "selected"; } ?>>31</option>
         </select> <select name="year" id="year">
-          <option value="2014" <? IF($_GET['year'] == "2014"){ echo "selected"; } ?>>2014</option>
-          <option value="2015" <? IF($_GET['year'] == "2015"){ echo "selected"; } ?>>2015</option>
-          <option value="2016" <? IF($_GET['year'] == "2016"){ echo "selected"; } ?>>2016</option>
-          <option value="2017" <? IF($_GET['year'] == "2017"){ echo "selected"; } ?>>2017</option>
-          <option value="2018" <? IF($_GET['year'] == "2018"){ echo "selected"; } ?>>2018</option>
-          <option value="2019" <? IF($_GET['year'] == "2019"){ echo "selected"; } ?>>2019</option>
-          <option value="2020" <? IF($_GET['year'] == "2020"){ echo "selected"; } ?>>2020</option>
-          <option value="2021" <? IF($_GET['year'] == "2020"){ echo "selected"; } ?>>2021</option>
+          <option value="2014" <?php IF($_GET['year'] == "2014"){ echo "selected"; } ?>>2014</option>
+          <option value="2015" <?php IF($_GET['year'] == "2015"){ echo "selected"; } ?>>2015</option>
+          <option value="2016" <?php IF($_GET['year'] == "2016"){ echo "selected"; } ?>>2016</option>
+          <option value="2017" <?php IF($_GET['year'] == "2017"){ echo "selected"; } ?>>2017</option>
+          <option value="2018" <?php IF($_GET['year'] == "2018"){ echo "selected"; } ?>>2018</option>
+          <option value="2019" <?php IF($_GET['year'] == "2019"){ echo "selected"; } ?>>2019</option>
+          <option value="2020" <?php IF($_GET['year'] == "2020"){ echo "selected"; } ?>>2020</option>
+          <option value="2021" <?php IF($_GET['year'] == "2020"){ echo "selected"; } ?>>2021</option>
         </select> </td>
     </tr>
     <tr> 
@@ -210,6 +210,6 @@ ELSE
 </form>
 </body>
 </html>
-<? 
+<?php 
 } 
 ?>

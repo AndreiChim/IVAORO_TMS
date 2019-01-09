@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("includes/config.php");
 
 if(!isset($installed))
@@ -95,17 +95,17 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
 </head>
 
 <body>
-<div align="center"><span class="currentdate" style="color:#003399"><? echo "ATC Trainings and Exams in ".date ("F Y", mktime(0,0,0,$_GET['month']-1,1,$_GET['year'])); ?></span><br>
+<div align="center"><span class="currentdate" style="color:#003399"><?php echo "ATC Trainings and Exams in ".date ("F Y", mktime(0,0,0,$_GET['month']-1,1,$_GET['year'])); ?></span><br>
   <br>
 </div>
 <div align="center"><br>
   <table width="700" border="0" cellspacing="0" cellpadding="0">
     <tr> 
-      <td><div align="right"><a href="<? echo "index.php?month=$prev_month&amp;year=$prev_year"; ?>">&lt;&lt;</a></div></td>
+      <td><div align="right"><a href="<?php echo "index.php?month=$prev_month&amp;year=$prev_year"; ?>">&lt;&lt;</a></div></td>
       <td width="200"><div align="center">
             
           <select name="month" id="month" onChange="MM_jumpMenu('parent',this,0)">
-            <?
+            <?php
 			for ($i = 1; $i <= 12; $i++) {
 				$link = $i+1;
 				IF($_GET['month'] == $link){
@@ -118,7 +118,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
 			?>
           </select>
           <select name="year" id="year" onChange="MM_jumpMenu('parent',this,0)">
-		  <?
+		  <?php
 		  for ($i = 2014; $i <= 2021; $i++) {
 		  	IF($i == $_GET['year']){
 				$selected = "selected";
@@ -130,7 +130,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
 		  ?>
           </select>
         </div></td>
-      <td><div align="left"><a href="<? echo "index.php?month=$next_month&amp;year=$next_year"; ?>">&gt;&gt;</a></div></td>
+      <td><div align="left"><a href="<?php echo "index.php?month=$next_month&amp;year=$next_year"; ?>">&gt;&gt;</a></div></td>
     </tr>
   </table>
   <br>
@@ -148,7 +148,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
           <td><div align="center">Saturday</div></td>
         </tr>
 		<tr valign="top" bgcolor="#FFFFFF"> 
-		<?
+		<?php
 		for ($i = 1; $i <= $first_day_of_month-1; $i++) {
 			$days_so_far = $days_so_far + 1;
 			$count_boxes = $count_boxes + 1;
@@ -202,7 +202,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
     <a href="http://www.kubelabs.com/php_calendar.php">Kubelabs.com</a><br>
     Adapted by Wilhelm Andrei Bubeneck (335177)
     <!--
-    Script Execution Time: <? echo $time; ?></span><br><br>
+    Script Execution Time: <?php echo $time; ?></span><br><br>
     <a href="http://validator.w3.org/check/referer"><img border="0" src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!" height="31" width="88"></a> 
 <a href="http://jigsaw.w3.org/css-validator/check/referer"><img border="0" style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!"></a></p> -->
 </body>
