@@ -47,14 +47,11 @@ class Logging {
 $log = new Logging();
 
 // set path and name of log file (optional)
-$log->lfile('logs/sent_reminders.txt');
+$log->lfile(getcwd().'/httpdocs/tms/logs/sent_reminders.txt');
 
 
 // config.php
-$host = 'localhost';
-$username = 'ro-div_roivao';
-$password = 'roivaoro123';
-$db_name = 'ro-div_tms';
+include ('config.php');
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
 mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
