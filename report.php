@@ -116,7 +116,7 @@ echo "
 				Please write a summary of the training process.
 			</td>
 			<td class='tablevalue'>
-				<textarea name='summary'><?php echo nl2br(stripslashes($row['Summary'])); ?></textarea>
+				<textarea name='summary'><?php echo stripslashes($row['Summary']); ?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -124,7 +124,7 @@ echo "
 				Pros
 			</td>
 			<td class='tablevalue'>
-				<textarea name='pros'><?php echo nl2br(stripslashes($row['Pros'])); ?></textarea>
+				<textarea name='pros'><?php echo stripslashes($row['Pros']); ?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -132,7 +132,7 @@ echo "
 				Cons
 			</td>
 			<td class='tablevalue'>
-				<textarea name='cons'><?php echo nl2br(stripslashes($row['Cons'])); ?></textarea>
+				<textarea name='cons'><?php echo stripslashes($row['Cons']); ?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -140,7 +140,7 @@ echo "
 				Suggestions
 			</td>
 			<td class='tablevalue'>
-				<textarea name='suggestions'><?php echo nl2br(stripslashes($row['Suggestions'])); ?></textarea>
+				<textarea name='suggestions'><?php echo stripslashes($row['Suggestions']); ?></textarea>
 			</td>
 		</tr>
 </table>
