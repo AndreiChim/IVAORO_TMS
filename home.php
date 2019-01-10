@@ -21,13 +21,8 @@
 		</h4>
 
 		<div id='calendar_frame'>
-			<iframe src='/calendar/index.php' frameborder='0' style='width:960px; height:660px; border-style: none;'>
+			<iframe src='calendar/index.php' frameborder='0' style='width:960px; height:760px; border-style: none;'>
 			</iframe>
-		</div>
-
-		<div id='indicators'>
-			<h4>ATC online in Romania</h4><br>
-			<img src="http://status.ivao.aero/ATC/lr.png" alt="Online ATC list">
 		</div>
 
 
