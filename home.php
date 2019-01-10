@@ -25,7 +25,7 @@
         </h4>
 
 		<div id='calendar_frame'>
-			<iframe src='calendar/index.php' style='width:960px; height:760px; border-style: none;'>
+			<iframe src='calendar/index.php' style='width:960px; height:660px; border-style: none;'>
 			</iframe>
 		</div>
 
