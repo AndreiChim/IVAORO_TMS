@@ -12,7 +12,7 @@
 			This will enable you to always have a complete overview of your own training history. <br><br>
 			If you have any questions about trainings, exams or GCA, do not hesitate to contact our training department: <br>
 			<a href='mailto:ro-tc@ivao.aero'>ro-tc@ivao.aero</a> <i>Wilhelm Andrei Bubeneck</i> <br>
-			<a href='mailto:ro-tac@ivao.aero'>ro-tac@ivao.aero</a> <i>Udo Korbanka</i> <br><br>
+			<a href='mailto:ro-tac@ivao.aero'>ro-tac@ivao.aero</a> <i>Udo Korbanka</i> <br>
             <a href='mailto:ro-ta1@ivao.aero'>ro-ta1@ivao.aero</a> <i>Lucian Cristea</i> <br><br>
 			For questions about this system, contact 
 			<a href='mailto:ro-tc@ivao.aero'>ro-tc@ivao.aero</a>.
