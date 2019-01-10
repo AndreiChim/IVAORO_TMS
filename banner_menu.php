@@ -15,7 +15,7 @@
 			if(!isset($_SESSION['login'])){ ?>
 				<!-- <li><a href="index.php?page=main_login">Login</a></li>
 				<li><a href="index.php?page=registration">Register</a></li> -->
-                <li><a href="http://login.ivao.aero/index.php?url=<?php echo $root_url; ?>ivao_login.php">Login with IVAO</a></li>
+                <li><a href="http://login.ivao.aero/index.php?url=<?php echo $root_url; ?>/ivao_login.php">Login with IVAO</a></li>
 			<?php } 
 			else{ ?>
 				<li><a href='myprofile.php'>My Profile</a></li>
