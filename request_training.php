@@ -2,6 +2,8 @@
 
 session_start();
 
+include('config.php');
+
 if($_SESSION['login'] == ''){
 	header('location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
 }
@@ -37,7 +39,7 @@ else{
 <table id='training_container' border='1'>
 	<tr>
 		<td style='text-align:center;'>
-            <?php if($_SESSION['division'] != 'RO'){ ?>
+            <?php if($_SESSION['division'] != $division){ ?>
             <label>
                 <input type='radio' name='training_type1' value='practical' checked /> Practical Training
             </label>
@@ -66,7 +68,7 @@ else{
 			</td>
 			<td class='tablevalue'>
 				<select class='type2' name='training_type2'>
-                    <?php if($_SESSION['division'] != 'RO'){ ?>
+                    <?php if($_SESSION['division'] != $division){ ?>
                     <option value='GCA training'>Guest Controller Approval (GCA) - Training</option>
                     <option value='GCA checkout'>Guest Controller Approval (GCA) - Checkout</option>
                     <?php } else{ 

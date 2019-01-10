@@ -113,13 +113,14 @@ if($_GET['IVAOTOKEN'] && $_GET['IVAOTOKEN'] !== 'error') {
             $staff = utf8_decode($xml[0]->staff);
             $staff_positions = explode(":", $staff);
             $acces = "USER";
-            $test = "";
             foreach($staff_positions as $staff_position){
-                if($staff_position == "RO-DIR" || $staff_position == "RO-ADIR" || $staff_position == "RO-TC" ||
-                    $staff_position == "RO-TAC" || $staff_position == "RO-TA1" || $staff_position == "RO-WM" ||
-                    $staff_position == "RO-AWM"){
+                if(in_array($staff_position, $allowed_staff)){
                     $acces = "ADMIN";
                 }
+
+//                $staff_position == "RO-DIR" || $staff_position == "RO-ADIR" || $staff_position == "RO-TC" ||
+//                $staff_position == "RO-TAC" || $staff_position == "RO-TA1" || $staff_position == "RO-WM" ||
+//                $staff_position == "RO-AWM"
 
             }
             if($acces != $row['Acces']) {
