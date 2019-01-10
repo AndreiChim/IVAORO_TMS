@@ -10,16 +10,19 @@
 		<h4>
 			After completing your training, you will be able to review the training report submitted by the trainer.
 			This will enable you to always have a complete overview of your own training history. <br><br>
-			If you have any questions about trainings, exams or GCA, do not hesitate to contact our training department: <br>
-			<a href='mailto:ro-tc@ivao.aero'>ro-tc@ivao.aero</a> <i>Wilhelm Andrei Bubeneck</i> <br>
-			<a href='mailto:ro-tac@ivao.aero'>ro-tac@ivao.aero</a> <i>Udo Korbanka</i> <br>
-            <a href='mailto:ro-ta1@ivao.aero'>ro-ta1@ivao.aero</a> <i>Lucian Cristea</i> <br><br>
+			If you have any questions about trainings, exams or GCA, do not hesitate to contact our training department: <br><br>
+			RO-TC <a href='mailto:ro-tc@ivao.aero'>Wilhelm Andrei Bubeneck</a><br>
+			RO-TAC <a href='mailto:ro-tac@ivao.aero'>Udo Korbanka</a><br>
+            RO-TA1 <a href='mailto:ro-ta1@ivao.aero'>Lucian Cristea</a><br><br>
 			For questions about this system, contact 
 			<a href='mailto:ro-tc@ivao.aero'>ro-tc@ivao.aero</a>.
 		</h4>
 		<h4>
 			Enjoy!
 		</h4>
+        <h4>
+            <a href="https://<?php echo $division; ?>.ivao.aero">Return to the main division website...</a>
+        </h4>
 
 		<div id='calendar_frame'>
 			<iframe src='calendar/index.php' style='width:960px; height:760px; border-style: none;'>
