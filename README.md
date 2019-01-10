@@ -39,4 +39,5 @@ run the website with full functionality at this point.
 
 6. Change the training locations and/or training types in "request_training.php".
 
-7. You should be ready to go! Logs are located in the logs folder within 
+7. You should be ready to go! Logs are located in the logs folder within the root
+of your TMS folder.
