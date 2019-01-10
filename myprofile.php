@@ -32,7 +32,7 @@ $user = mysqli_fetch_array($result);
 $name = $user['Name'];
 $email = $user['Email'];
 $rating = $user['Rating'];
-$division = $user['Division'];
+$user_division = $user['Division'];
 $acces = $user['Acces'];
 
 ?>
@@ -91,7 +91,7 @@ echo
 				Division
 			</td>
 			<td class='tablevalue'>".
-				$division.
+				$user_division.
 			"</td>
 		</tr>
 		<tr>
@@ -125,7 +125,7 @@ $count_cancelable = mysqli_num_rows($result);
 	</p>
     <p>
         <span class='error'>
-            Please meet with the trainer at the set time and date on the IVAO Romania Discord server. If you haven't already joined the server, please use this invite link: <a href='<?php echo $discord_link; ?>' target="_blank"><?php echo $discord_link; ?></a>
+            Please meet with the trainer at the set time and date on the IVAO <?php echo $division_long; ?> Discord server. If you haven't already joined the server, please use this invite link: <a href='<?php echo $discord_link; ?>' target="_blank"><?php echo $discord_link; ?></a>
         </span>
     </p>
 </fieldset>
