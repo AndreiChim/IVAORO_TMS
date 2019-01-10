@@ -30,14 +30,19 @@ Configuration instructions for use in other IVAO divisions:
 2. Create a new MySQL database on your server and upload the example 
 database provided ("db.sql").
 
-3. Change the variables in "config.php" to suit your setup. You should be able to
+3. Change the variables in "config.php" to suit your setup. 
+
+4. Setup a chronjob to run "training_reminder.php" daily at 12z. You should be able to
 run the website with full functionality at this point.
 
-4. Modify "banner_main.jpg".
+5. Modify "banner_main.jpg".
 
-5. Change the information text on the homepage located in "home.php".
+6. Change the information text on the homepage located in "home.php".
 
-6. Change the training locations and/or training types in "request_training.php".
+7. Change the training locations and/or training types in "request_training.php".
 
-7. You should be ready to go! Logs are located in the logs folder within the root
+8. If need be, change the texts of the automated emails in "request.php",
+"propose_deadline.php", "training_reminder.php" and "filereport.php".
+
+9. You should be ready to go! Logs are located in the logs folder within the root
 of your TMS folder.
