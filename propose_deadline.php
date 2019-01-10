@@ -2,11 +2,12 @@
 
 session_start();
 
+include('config.php');
+
 if($_SESSION['login'] == ''){
-	header('location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
+	header("location:http://login.ivao.aero/index.php?url=$root_url/ivao_login.php");
 }
 
-include('config.php');
 $tbl_name = 'training_requests';
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: ' . mysqli_error($con));
@@ -48,7 +49,7 @@ else{
             header("location:admin.php");
         }
         $to = $email;
-        $header = "From: IVAO Romania <tms@ro.ivao.aero>" . "\r\n" . "Reply-To: ro-tc@ivao.aero, ro-tac@ivao.aero, ro-hq@ivao.aero";
+        $header = "From: IVAO ".$division_long." <".$mailbox.">" . "\r\n" . "Reply-To: ".$division."-TC@ivao.aero, ".$division."-TAC@ivao.aero, ".$division."-HQ@ivao.aero";
         $subject = "[Tracking number: " . $tracking . "] IVAO ".($type1 == "EXAM" ? "Exam": "Training")." Deadline";
 
         $message = 
@@ -64,7 +65,7 @@ We are informing you that one of our ".($type1 == "EXAM" ? "examiners": "trainer
 ": "")."
 You should go to the following link, log in with your credentials and choose the time and date most appropriate for you.
 
-http://ro.ivao.aero/tms/myprofile.php
+".$root_url."myprofile.php
 
 If you do not agree with any of the proposals of the ".($type1 == "EXAM" ? "examiner": "trainer").", reply to this email requesting a new proposal. Please also keep in mind that after you've chosen a date for your session it cannot be changed except with a good reason.
 
@@ -72,11 +73,11 @@ Should you have any questions regarding your ".($type1 == "EXAM" ? "exam": "trai
 
 Kind regards,
 
-IVAO Romania Training Department
+IVAO ".$division_long." Training Department
 
 ---
 
-You have received this email because you gave your consent to such usage of your email address by confirming a prompt before being able to access the features of our website: ro.ivao.aero/tms. If you think you should not have been the recipient of such an email, please contact us by replying to it.
+You have received this email because you gave your consent to such usage of your email address by confirming a prompt before being able to access the features of our website: ".$root_url.". If you think you should not have been the recipient of such an email, please contact us by replying to it.
 ";
 
         // message lines should not exceed 70 characters (PHP rule), so wrap it

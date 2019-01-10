@@ -1,5 +1,6 @@
 <?php
 require_once("includes/config.php");
+include("../config.php");
 $con = mysqli_connect ($DBHost, $DBUser, $DBPass) OR die (mysqli_error($con));
 $db_select = mysqli_select_db($con,$DBName) or die (mysqli_error($con));
 $db_table = $TBL_PR . "events";
@@ -14,7 +15,7 @@ while ($info = mysqli_fetch_array($query_result)){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <head>
-<title>IVAO Romania TMS</title>
+<title>IVAO <?php echo $division_long; ?> TMS</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="images/cal.css" rel="stylesheet" type="text/css">
 </head>

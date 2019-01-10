@@ -1,8 +1,11 @@
 <?php
 
 session_start();
+
+include('config.php');
+
 if($_SESSION['login'] == ''){
-	header("location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php");
+	header("location:http://login.ivao.aero/index.php?url=$root_url/ivao_login.php");
 }
 elseif($_SESSION['acces'] != 'ADMIN'){
 	header("location:noaccess.php");
@@ -12,7 +15,7 @@ elseif($_SESSION['acces'] != 'ADMIN'){
 
 <html lang="en">
 <head>
-	<title>IVAO Romania TMS</title>
+	<title>IVAO <?php echo $division_long; ?> TMS</title>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   	<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
   	<!-- <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
@@ -40,8 +43,6 @@ elseif($_SESSION['acces'] != 'ADMIN'){
 <div id='content'>
 
 <?php
-
-include('config.php');
 $tbl_name = 'training_requests';
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));

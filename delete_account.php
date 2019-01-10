@@ -2,11 +2,12 @@
 
 session_start();
 
+include('config.php');
+
 if($_SESSION['login'] == ''){
-	header('location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
+	header("location:http://login.ivao.aero/index.php?url=$root_url/ivao_login.php");
 }
 
-include('config.php');
 include('Logging.php');
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
@@ -37,7 +38,7 @@ if($_GET['delete'] == 'yes'){
     $log = new Logging();
 
     // set path and name of log file (optional)
-    $log->lfile('logs/deletion.txt');
+    $log->lfile(getcwd().'/logs/deletion.txt');
 
     // write message to the log file
     $log->lwrite("$id/DELETED from users/$date");
@@ -54,12 +55,12 @@ if($_GET['delete'] == 'yes'){
 
 <html lang="en">
 <head>
-	<title>IVAO Romania TMS</title>
+	<title>IVAO <?php echo $division_long; ?> TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="main.css">
     <script type="text/javascript">
             function getConfirmation(){
-               var retVal = confirm("This will PERMANENTLY DELETE ALL INFORMATION stored about you by the IVAO Romania TMS! This CAN NOT be reversed if you haven't downloaded your data! Are you really sure you want to continue?");
+               var retVal = confirm("This will PERMANENTLY DELETE ALL INFORMATION stored about you by this website! This CAN NOT be reversed if you haven't downloaded your data! Are you really sure you want to continue?");
                if( retVal == true ){
                   window.location.replace("delete_account.php?delete=yes");
                   return true;
@@ -74,13 +75,13 @@ if($_GET['delete'] == 'yes'){
 <div id='container'>
 <?php include('banner_menu.php'); ?>
 <div id='header'>
-	<h3>&nbsp Delete account</h3>
+	<h3>&nbsp; Delete account</h3>
 </div>
 <div id='content'>
 <br>
 <fieldset>
     <legend>Delete Account</legend>
-    <p>This will delete all the data concerning your person from the database of IVAO Romania. It will however NOT affect in any way the data stored in the main IVAO database.
+    <p>This will delete all the data concerning your person from the database of IVAO <?php echo $division_long; ?>. It will however NOT affect in any way the data stored in the main IVAO database.
     </p>
     <p>We recommend you go back to your profile page and download your data as an XML file in case you change your mind later.
     </p>

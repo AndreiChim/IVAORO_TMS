@@ -5,7 +5,7 @@ session_start();
 include('config.php');
 
 if($_SESSION['login'] == ''){
-	header('location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
+	header("location:http://login.ivao.aero/index.php?url=$root_url/ivao_login.php");
 }
 
 if($_SESSION['member_dataprotection'] == 'NO'){
@@ -16,7 +16,7 @@ if($_SESSION['member_dataprotection'] == 'NO'){
 
 <html lang="en">
 <head>
-	<title>IVAO Romania TMS</title>
+	<title>IVAO <?php echo $division_long; ?> TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -180,10 +180,10 @@ else{
 			</td>
 			<td class='tablevalue'>
 				<select class='type2' name='airport'>
-                    <?php if($_SESSION['division'] != 'RO'){ ?>
+                    <?php if($_SESSION['division'] != $division){ ?>
                     <option value='LROP (TWR)'>LROP_TWR - Otopeni Tower</option>
                     <option value='LROP (APP)'>LROP_APP - Bucharest Approach</option>
-                    <option value='LRBB (CTR)'>LRBB_CTR - Bucharest Radar</option>
+                    <option value='LRBB'>LRBB_CTR - Bucharest Radar</option>
                     <?php } else{ ?>
 					<option value='LROP'>LROP - Bucharest (Henri Coanda)</option>
 					<option value='LRTR'>LRTR - Timisoara (Traian Vuia)</option>

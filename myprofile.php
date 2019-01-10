@@ -2,15 +2,15 @@
 
 session_start();
 
+include('config.php');
+
 if($_SESSION['login'] == ''){
-	header('location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
+	header("location:http://login.ivao.aero/index.php?url=$root_url/ivao_login.php");
 }
 
 if($_SESSION['member_dataprotection'] == 'NO'){
     header("location:member_dataprotection.php?target=myprofile");
 }
-
-include('config.php');
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
 mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
@@ -39,7 +39,7 @@ $acces = $user['Acces'];
 
 <html lang="en">
 <head>
-	<title>IVAO Romania TMS</title>
+	<title>IVAO <?php echo $division_long; ?> TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -121,11 +121,11 @@ $count_cancelable = mysqli_num_rows($result);
 <fieldset>
 	<legend><span class='error'>Important information!</span></legend>
 	<p><span class='error'>All times in the deadlines are UTC! If you do not agree with any of the proposals of the trainer, send an email to
-		<a href='mailto:ro-tc@ivao.aero'>RO-TC</a> requesting a deadline change. </span>
+		<a href='mailto:<?php echo $division; ?>-TC@ivao.aero'><?php echo $division; ?>-TC</a> requesting a deadline change. </span>
 	</p>
     <p>
         <span class='error'>
-            Please meet with the trainer at the set time and date on the IVAO Romania Discord server. If you haven't already joined the server, please use this invite link: <a href='https://discord.gg/xdwEPyr' target="_blank">https://discord.gg/xdwEPyr</a>
+            Please meet with the trainer at the set time and date on the IVAO Romania Discord server. If you haven't already joined the server, please use this invite link: <a href='<?php echo $discord_link; ?>' target="_blank"><?php echo $discord_link; ?></a>
         </span>
     </p>
 </fieldset>
@@ -268,10 +268,10 @@ $count_cancelable = mysqli_num_rows($result);
 
 <br>
 <form id='download_info' action='download_info.php' method='post'>
-    <input class='submit' type='submit' name='submit' value='Download my personal data from the IVAO RO database!' />
+    <input class='submit' type='submit' name='submit' value='Download my personal data from the IVAO <?php echo $division; ?> database!' />
 </form>
 <form id='delete_account' action='delete_account.php' method='post'>
-	<input class='submit' type='submit' name='submit' value='Delete account from the IVAO RO database!' />
+	<input class='submit' type='submit' name='submit' value='Delete account from the IVAO <?php echo $division; ?> database!' />
 </form>
 </div>
 <?php include('footer.php'); ?>

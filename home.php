@@ -1,5 +1,6 @@
+<?php include("config.php"); ?>
 <div id="header">
-		<h3>&nbsp; Welcome to the IVAO Romania Training Management System (TMS)</h3>
+		<h3>&nbsp; Welcome to the IVAO <?php echo $division_long; ?> Training Management System (TMS)</h3>
 	</div>
 
 	<div id="content">

@@ -1,6 +1,7 @@
+<?php include("config.php"); ?>
 <html lang="en">
 <head>
-	<title>IVAO Romania TMS</title>
+	<title>IVAO <?php echo $division_long; ?> TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>

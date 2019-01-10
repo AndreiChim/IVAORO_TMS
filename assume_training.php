@@ -2,11 +2,12 @@
 
 session_start();
 
+include('config.php');
+
 if($_SESSION['login'] == ''){
-	header('location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
+	header("location:http://login.ivao.aero/index.php?url=$root_url/tms/ivao_login.php");
 }
 
-include('config.php');
 $tbl_name = 'training_requests';
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: ' . mysqli_error($con));

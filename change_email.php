@@ -2,11 +2,11 @@
 
 session_start();
 
-if($_SESSION['login'] == ''){
-	header('location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
-}
-
 include('config.php');
+
+if($_SESSION['login'] == ''){
+	header("location:http://login.ivao.aero/index.php?url=$root_url/tms/ivao_login.php");
+}
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
 mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
 
 <html lang="en">
 <head>
-	<title>IVAO Romania TMS</title>
+	<title>IVAO <?php echo $division_long; ?> TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>

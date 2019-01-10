@@ -1,12 +1,13 @@
 <html lang="en">
 <head>
-<title>IVAO Romania TMS</title>
+<title>IVAO <?php echo $division_long; ?> TMS</title>
 <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
 <div id="container">
 <?php
 include("banner_menu.php");
+include("config.php");
 ?>
 <div id="content">
 <?php

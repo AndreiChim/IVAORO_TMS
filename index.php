@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include("config.php");
+
 if(isset($_GET['page'])){
 			if($_GET['page'] == 'main_login' && isset($_SESSION['login'])){
 				header("location:myprofile.php");
@@ -11,7 +13,7 @@ if(isset($_GET['page'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>IVAO Romania TMS</title>
+	<title>IVAO <?php echo $division_long; ?> TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="main.css" />
     <script src='https://www.google.com/recaptcha/api.js'></script>

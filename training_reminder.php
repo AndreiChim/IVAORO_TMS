@@ -74,7 +74,7 @@ while($training_request = mysqli_fetch_array($result)){
             $location = $training_request['Airport'];
             $trainer = $training_request['Trainer'];
             $deadlines1 = $training_request['Deadlines1'];
-            $header = "From: IVAO Romania <tms@ro.ivao.aero>" . "\r\n" . "Reply-To: ro-tc@ivao.aero, ro-tac@ivao.aero, ro-hq@ivao.aero";
+            $header = "From: IVAO ".$division_long." <".$mailbox.">" . "\r\n" . "Reply-To: ".$division."-TC@ivao.aero, ".$division."-TAC@ivao.aero, ".$division."-HQ@ivao.aero";
             $subject = "[Tracking number: " . $tracking . "] IVAO ".($type1 == "EXAM" ? "Exam": "Training")." Reminder";
             $message = 
 "Hello ".$name."!
@@ -84,17 +84,17 @@ We would like to remind you of your following appointment for tomorrow:
 ".$deadlines1." UTC / ".$type2." - ".$type1." / Location: ".$location." /
 Trainer: ".$trainer."
 
-Please meet with the trainer at the set time and date on the IVAO Romania Discord server. If you haven't already joined the server, please use this invite link: https://discord.gg/xdwEPyr
+Please meet with the trainer at the set time and date on the IVAO .".$division_long." Discord server. If you haven't already joined the server, please use this invite link: ".$discord_link."
 
 If you are not able to make it to your ".($type1 == "EXAM" ? "exam": "training")." tomorrow, or have any questions, please reply to this email as soon as possible.
 
 Kind regards,
 
-IVAO Romania Training Department
+IVAO ".$division_long." Training Department
 
 ---
 
-You have received this email because you gave your consent to such usage of your email address by confirming a prompt before being able to access the features of our website: ro.ivao.aero/tms. If you think you should not have been the recipient of such an email, please contact us by replying to it.";
+You have received this email because you gave your consent to such usage of your email address by confirming a prompt before being able to access the features of our website: ".$root_url.". If you think you should not have been the recipient of such an email, please contact us by replying to it.";
             
 			$message = wordwrap($message, 75);
             $id = $training_request['ID'];

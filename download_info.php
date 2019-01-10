@@ -2,15 +2,15 @@
 
 session_start();
 
+include('config.php');
+
 if($_SESSION['login'] == ''){
-	header('location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
+	header("location:http://login.ivao.aero/index.php?url=$root_url/ivao_login.php");
 }
 
 if($_SESSION['member_dataprotection'] == 'NO'){
     header("location:member_dataprotection.php?target=download_info");
 }
-
-include('config.php');
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
 mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));

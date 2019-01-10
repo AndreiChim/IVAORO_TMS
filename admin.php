@@ -2,8 +2,10 @@
 
 session_start();
 
+include('config.php');
+
 if($_SESSION['login'] == ''){
-	header("location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php");
+	header("location:http://login.ivao.aero/index.php?url=$root_url/ivao_login.php");
 }
 elseif($_SESSION['acces'] != 'ADMIN'){
 	header("location:noaccess.php");
@@ -17,7 +19,7 @@ if($_SESSION['admin_dataprotection'] == 'NO'){
 
 <html lang="en">
 <head>
-	<title>IVAO Romania TMS</title>
+	<title>IVAO <?php echo $division_long; ?> TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -32,7 +34,6 @@ if($_SESSION['admin_dataprotection'] == 'NO'){
 
 <?php
 
-include('config.php');
 $tbl_name = 'training_requests';
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));

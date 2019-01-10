@@ -1,15 +1,18 @@
 <?php
 
 session_start();
+
+include('config.php');
+
 if($_SESSION['login'] == ''){
-	header('location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
+	header("location:http://login.ivao.aero/index.php?url=$root_url/ivao_login.php");
 }
 
 ?>
 
 <html lang="en">
 <head>
-	<title>IVAO Romania TMS</title>
+	<title>IVAO <?php echo $division_long; ?> TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -23,7 +26,6 @@ if($_SESSION['login'] == ''){
 
 <?php
 
-include('config.php');
 $tbl_name = 'training_requests';
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: ' . mysqli_error($con));
@@ -65,7 +67,7 @@ if(isset($_POST['submit'])){
         $_SESSION['email'] = $email;
 
         $to = $email;
-        $header = "From: IVAO Romania <tms@ro.ivao.aero>" . "\r\n" . "Reply-To: ro-tc@ivao.aero, ro-tac@ivao.aero, ro-hq@ivao.aero";
+        $header = "From: IVAO ".$division_long." <".$mailbox.">" . "\r\n" . "Reply-To: ".$division."-TC@ivao.aero, ".$division."-TAC@ivao.aero, ".$division."-HQ@ivao.aero";
         if($type1 == "EXAM"){
             $subject = "[Tracking number: " . $tracking . "] IVAO Practical Exam Scheduling: $type2";
 
@@ -82,7 +84,7 @@ or else we will refuse to process your exam deadline request here.
 
 If you do not want to perform this exam anymore or if you made this request by mistake, you can go to your profile page at
 
-http://ro.ivao.aero/tms/myprofile.php
+".$root_url."myprofile.php
 
 and cancel it. Be aware you can only cancel a request by yourself before a trainer has proposed deadlines.
 
@@ -102,11 +104,11 @@ Should you have any questions regarding your practical exam, please reply to thi
 
 Kind regards,
 
-IVAO Romania Training Department
+IVAO ".$division_long." Training Department
 
 ---
 
-You have received this email because you gave your consent to such usage of your email address by confirming a prompt before being able to access the features of our website: ro.ivao.aero/tms. If you think you should not have been the recipient of such an email, please contact us by replying to it.
+You have received this email because you gave your consent to such usage of your email address by confirming a prompt before being able to access the features of our website: ".$root_url.". If you think you should not have been the recipient of such an email, please contact us by replying to it.
 ";
         }
         else{
@@ -119,7 +121,7 @@ Thank you for your interest in a training session with us! Your request has been
 
 If you do not want to perform this training anymore or if you made this request by mistake, you can go to your profile page at
 
-http://ro.ivao.aero/tms/myprofile.php
+".$root_url."myprofile.php
 
 and cancel it. Be aware you can only cancel a request by yourself before a trainer has proposed deadlines. After that you will need to contact us by replying to this email and provide a good reason.
 
@@ -134,11 +136,11 @@ Should you have any questions regarding your training request, please reply to t
 
 Kind regards,
 
-IVAO Romania Training Department
+IVAO ".$division_long." Training Department
 
 ---
 
-You have received this email because you gave your consent to such usage of your email address by confirming a prompt before being able to access the features of our website: ro.ivao.aero/tms. If you think you should not have been the recipient of such an email, please contact us by replying to it.
+You have received this email because you gave your consent to such usage of your email address by confirming a prompt before being able to access the features of our website: ".$root_url.". If you think you should not have been the recipient of such an email, please contact us by replying to it.
 ";
         }
 

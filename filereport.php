@@ -2,11 +2,12 @@
 
 session_start();
 
+include('config.php');
+
 if($_SESSION['login'] == ''){
-	header('location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
+	header("location:http://login.ivao.aero/index.php?url=$root_url/ivao_login.php");
 }
 
-include('config.php');
 $tbl_name = 'training_requests';
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: ' . mysqli_error($con));
@@ -40,25 +41,25 @@ if(isset($_POST['file-report'])){
     $name = $request['Name'];
     
     $to = $email;
-        $header = "From: IVAO Romania <tms@ro.ivao.aero>" . "\r\n" . "Reply-To: ro-tc@ivao.aero, ro-tac@ivao.aero, ro-hq@ivao.aero";
-        $subject = "[Tracking number: " . $tracking . "] IVAO Training Report";
+    $header = "From: IVAO ".$division_long." <".$mailbox.">" . "\r\n" . "Reply-To: ".$division."-TC@ivao.aero, ".$division."-TAC@ivao.aero, ".$division."-HQ@ivao.aero";
+    $subject = "[Tracking number: " . $tracking . "] IVAO Training Report";
 
-        $message = 
+    $message =
 "Hello ".$name."!
 
 Your training has been completed and your trainer has filed a report. Please review it by accessing your personal profile at:
 
-http://ro.ivao.aero/tms/myprofile.php
+".$root_url."myprofile.php
 
 Should you have any questions or feedback regarding your training, please reply to this email. We will get back to you as soon as possible.
 
 Kind regards,
 
-IVAO Romania Training Department
+IVAO ".$division_long." Training Department
 
 ---
 
-You have received this email because you gave your consent to such usage of your email address by confirming a prompt before being able to access the features of our website: ro.ivao.aero/tms. If you think you should not have been the recipient of such an email, please contact us by replying to it.
+You have received this email because you gave your consent to such usage of your email address by confirming a prompt before being able to access the features of our website: ".$root_url.". If you think you should not have been the recipient of such an email, please contact us by replying to it.
 ";
 
     // message lines should not exceed 70 characters (PHP rule), so wrap it

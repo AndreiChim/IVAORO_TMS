@@ -152,9 +152,7 @@ if($_GET['IVAOTOKEN'] && $_GET['IVAOTOKEN'] !== 'error') {
             $staff_positions = explode(":", $staff);
             $acces = "USER";
             foreach($staff_positions as $staff_position){
-                if($staff_position == "RO-DIR" || $staff_position == "RO-ADIR" || $staff_position == "RO-TC" ||
-                    $staff_position == "RO-TAC" || $staff_position == "RO-TA1" || $staff_position == "RO-WM" ||
-                    $staff_position == "RO-AWM"){
+                if(in_array($staff_position, $allowed_staff)){
                     $acces = "ADMIN";
                 }
             }
@@ -241,7 +239,7 @@ if($_GET['IVAOTOKEN'] && $_GET['IVAOTOKEN'] !== 'error') {
         }
 	} 
     else{
-		header('Location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
+		header("Location:http://login.ivao.aero/index.php?url=$root_url/ivao_login.php");
     }
 }
 elseif($_GET['IVAOTOKEN'] == 'error') {

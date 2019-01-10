@@ -2,8 +2,10 @@
 
 session_start();
 
+include('config.php');
+
 if($_SESSION['login'] == ''){
-	header('location:http://login.ivao.aero/index.php?url=http://ro.ivao.aero/tms/ivao_login.php');
+	header("location:http://login.ivao.aero/index.php?url=$root_url/ivao_login.php");
 }
 elseif($_SESSION['acces'] != 'ADMIN'){
 	header("location:noaccess.php");
@@ -16,7 +18,6 @@ if($_SESSION['admin_dataprotection'] == 'YES'){
     header("location:admin.php");
 }
 
-include('config.php');
 include('Logging.php');
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
@@ -33,7 +34,7 @@ if(isset($_POST['submit'])){
         $log = new Logging();
 
         // set path and name of log file (optional)
-        $log->lfile('logs/admin_dataprotection.txt');
+		$log->lfile(getcwd().'/logs/admin_dataprotection.txt');
 
         // write message to the log file
         $log->lwrite("$id/YES/$date");
@@ -51,7 +52,7 @@ if(isset($_POST['submit'])){
 
 <html lang="en">
 <head>
-	<title>IVAO Romania TMS</title>
+	<title>IVAO <?php echo $division_long; ?> TMS</title>
 	<link rel="shortcut icon" href="http://www.ivao.aero/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -59,7 +60,7 @@ if(isset($_POST['submit'])){
 <div id='container'>
 <?php include('banner_menu.php'); ?>
 <div id='header'>
-	<h3>&nbsp Staff Access - Data Protection</h3>
+	<h3>&nbsp; Staff Access - Data Protection</h3>
 </div>
 <div id='content'>
 <br>
@@ -71,7 +72,7 @@ if(isset($_POST['submit'])){
     <legend>Data protection agreement</legend>
     <form id="dataprotection_form" action="admin_dataprotection.php?target=<?php echo $target; ?>" method="post">
         <label>
-            <input type="checkbox" name="dataprotection_agreement" id="dataprotection_agreement" value="YES" /> I agree to follow the IVAO Rules and Regulations regarding Data Protection and Privacy when handling the confidential information displayed in the IVAO Romania TMS administration pages. I will never disclose this information to any Third Party.
+            <input type="checkbox" name="dataprotection_agreement" id="dataprotection_agreement" value="YES" /> I agree to follow the IVAO Rules and Regulations regarding Data Protection and Privacy when handling the confidential information displayed in the IVAO <?php echo $division_long; ?> TMS administration pages. I will never disclose this information to any Third Party.
         </label>
         <br>
         <input class='submit' type="submit" name="submit" value="Submit" />
