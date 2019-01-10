@@ -1,5 +1,5 @@
 <div id="footer">
-		Copyright &copy <?php 
+		Copyright &copy; <?php
 		if(date('Y') == 2014){
 			echo 2014;
 		}
