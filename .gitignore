@@ -2,3 +2,5 @@
 .idea/
 #Ignore logs
 logs/
+#Ignore config.php
+config.php
