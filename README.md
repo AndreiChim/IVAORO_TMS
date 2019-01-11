@@ -1,4 +1,4 @@
-TRAINING MANAGEMENT SYSTEM (TMS)
+TRAINING MANAGEMENT SYSTEM (TMS) v2.0
 
 for the Romanian Division of the 
 International Virtual Aviation Organisation (ro.ivao.aero)
@@ -30,7 +30,8 @@ Configuration instructions for use in other IVAO divisions:
 2. Create a new MySQL database on your server and upload the example 
 database provided ("db.sql").
 
-3. Change the variables in "config.php" to suit your setup. 
+3. Change "config.php_model" to "config.php" and modify the variables within to 
+suit your setup. 
 
 4. Setup a chronjob to run "training_reminder.php" daily at 12z. You should be able to
 run the website with full functionality at this point.
