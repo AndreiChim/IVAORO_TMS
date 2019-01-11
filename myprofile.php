@@ -54,10 +54,10 @@ $acces = $user['Acces'];
 <?php
     
 if($acces == 'ADMIN'){
-	echo "<img class='rating' src='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTzdSuU9UvmeiouLVeMfMdKx8tqfpcUdoUpscKt-PtB7RCaZ3gH' alt='ADMIN'>";
+	echo "<a href='https://visualpharm.com/free-icons/admin%20settings%20male-595b40b85ba036ed117dbebc'><img class='rating' src='admin_icon.svg' alt='ADMIN'></a>";
 }
 else{
-	echo "<img class='rating' src='http://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg' alt='USER'>";
+	echo "<a href='http://www.onlinewebfonts.com'><img class='rating' src='user_icon.svg' alt='USER'></a>";
 }
 
 echo
