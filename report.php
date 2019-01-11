@@ -36,10 +36,10 @@ elseif($_SESSION['acces'] != 'ADMIN'){
     $row = mysqli_fetch_array($result);
 
     ?>
-    <h3>&nbsp; <?php if($_GET['submit'] == 'Modify Report') echo "Modify"; ?>Training Report&nbsp; #<?php echo $tracking; ?></h3>
+    <h3>&nbsp; <?php if($_GET['submit'] == 'Modify Report') echo "Modify"; ?>Training Report</h3>
 </div>
 <div id='content'>
-<br>
+<?php echo "<p><a href='viewreport.php?tracking=$tracking'>Cancel and return to Training Report...</a></p>"; ?>
 <form id='filereport' action='filereport.php' method='post'>
 <?php
 
@@ -50,7 +50,7 @@ echo "
 				Tracking Number
 			</td>
 			<td class='tablevalue'>
-				<a href='trainingdet.php?tracking=".$row['Tracking']."'>".$row['Tracking']."</a>
+				".$row['Tracking']."
 			</td>
 		</tr>
 		<tr>
@@ -63,7 +63,7 @@ echo "
 		</tr>
 		<tr>
 			<td class='tablekey'>
-				ID
+				VID
 			</td>
 			<td class='tablevalue'>".
 				$row['ID'].
@@ -77,6 +77,14 @@ echo "
 				$row['Name'].
 			"</td>
 		</tr>
+				<tr>
+			<td class='tablekey'>
+				Current Rating
+			</td>
+			<td class='tablevalue'>".
+                 $row['Rating'].
+            "</td>
+		</tr>
 		<tr>
 			<td class='tablekey'>
 				Email
@@ -87,19 +95,19 @@ echo "
 		</tr>
 		<tr>
 			<td class='tablekey'>
-				Rating
-			</td>
-			<td class='tablevalue'>".
-				$row['Rating'].
-			"</td>
-		</tr>
-		<tr>
-			<td class='tablekey'>
-				Airport
+				Location
 			</td>
 			<td class='tablevalue'>".
 				$row['Airport'].
 			"</td>
+		</tr>
+		<tr>
+			<td class='tablekey'>
+				Appointment
+			</td>
+			<td class='tablevalue'>".
+                $row['Deadlines1'].
+            "</td>
 		</tr>
 		<tr>
 			<td class='tablekey'>

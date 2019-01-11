@@ -200,7 +200,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
 
 <p align="center"><span class="footer"> Calendar &copy; 2008 
     <a href="http://www.kubelabs.com/php_calendar.php">Kubelabs.com</a><br>
-    Adapted by Wilhelm Andrei Bubeneck (335177)
+    Adapted by Wilhelm Andrei Bubeneck (2014)
     <!--
     Script Execution Time: <?php echo $time; ?></span><br><br>
     <a href="http://validator.w3.org/check/referer"><img border="0" src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!" height="31" width="88"></a> 

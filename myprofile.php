@@ -47,7 +47,7 @@ $acces = $user['Acces'];
 <div id='container'>
 <?php include('banner_menu.php'); ?>
 <div id='header'>
-	<h3>&nbsp My Profile</h3>
+	<h3>&nbsp <?php if($_SESSION['id'] == $id) echo 'My'; else echo 'User'; ?> Profile</h3>
 </div>
 <div id='content'>
 <br>
@@ -60,49 +60,97 @@ else{
 	echo "<a href='http://www.onlinewebfonts.com'><img class='rating' src='user_icon.svg' alt='USER'></a>";
 }
 
-echo
-	"<table id='myprofile' border='0'>
+if($_SESSION['id'] == $id){
+    echo
+        "<table id='myprofile' border='0'>
 		<tr>
 			<td class='tablekey'>
-				ID
+				VID
 			</td>
 			<td class='tablevalue'>".
-				$id.
-			"</td>
+        $id.
+        "</td>
 		</tr>
 		<tr>
 			<td class='tablekey'>
 				Name
 			</td>
 			<td class='tablevalue'>".
-				$name.
-			"</td>
+        $name.
+        "</td>
 		</tr>
         <tr>
 			<td class='tablekey'>
 				Rating
 			</td>
 			<td class='tablevalue'>".
-				$rating.
-			"</td>
+        $rating.
+        "</td>
 		</tr>
         <tr>
 			<td class='tablekey'>
 				Division
 			</td>
 			<td class='tablevalue'>".
-				$user_division.
-			"</td>
+        $user_division.
+        "</td>
 		</tr>
 		<tr>
 			<td class='tablekey'>
 				Email
 			</td>
 			<td class='tablevalue'>".
-				stripslashes($email).
-			" (<a href='change_email.php'>change email</a>)</td>
+        stripslashes($email).
+        " (<a href='change_email.php'>change email</a>)</td>
 		</tr>
 	</table>";
+}
+else{
+    echo
+        "<table id='myprofile' border='0'>
+		<tr>
+			<td class='tablekey'>
+				VID
+			</td>
+			<td class='tablevalue'>".
+        $id.
+        "</td>
+		</tr>
+		<tr>
+			<td class='tablekey'>
+				Name
+			</td>
+			<td class='tablevalue'>".
+        $name.
+        "</td>
+		</tr>
+        <tr>
+			<td class='tablekey'>
+				Rating
+			</td>
+			<td class='tablevalue'>".
+        $rating.
+        "</td>
+		</tr>
+        <tr>
+			<td class='tablekey'>
+				Division
+			</td>
+			<td class='tablevalue'>".
+        $user_division.
+        "</td>
+		</tr>
+		<tr>
+			<td class='tablekey'>
+				Email
+			</td>
+			<td class='tablevalue'>".
+        stripslashes($email).
+        "</td>
+		</tr>
+	</table>";
+}
+
 
 // connection
 
@@ -140,13 +188,13 @@ $count_cancelable = mysqli_num_rows($result);
 			Type
 		</td>
 		<td class='tablekey'>
-			Rating
+			Current Rating
 		</td>
 		<td class='tablekey'>
-			Airport
+			Location
 		</td>
 		<td class='tablekey'>
-			Deadline
+			Appointment
 		</td>
 		<td class='tablekey'>
 			Trainer
@@ -155,7 +203,7 @@ $count_cancelable = mysqli_num_rows($result);
 			Report
 		</td>
         <?php
-        if($count_cancelable >= 1){ ?>
+        if($count_cancelable >= 1 && $_SESSION['id'] == $id){ ?>
         <td class='tablekey'>
             Actions
         </td>
@@ -211,8 +259,8 @@ $count_cancelable = mysqli_num_rows($result);
 						echo "<span class='pending'>Pending</pending>";
 					}
 					if($deadlines1 != 'NA'){
-						echo "<input class='submit' type='submit' name='submit' value='Choose' />
-						<input type='hidden' name='tracking' value='".$tracking."' />
+						if($_SESSION['id'] == $id){ echo "<input class='submit' type='submit' name='submit' value='Choose' />";}
+						echo "<input type='hidden' name='tracking' value='".$tracking."' />
 						<input type='hidden' name='type1' value='".$row['Type1']."' />
 						<input type='hidden' name='type2' value='".$row['Type2']."' />
 						<input type='hidden' name='name' value='".$row['Name']."' />
@@ -247,7 +295,7 @@ $count_cancelable = mysqli_num_rows($result);
 				?>
             <td class='tablevalue'>
                 <?php
-                if($deadlines1 == 'NA'){
+                if($deadlines1 == 'NA' && $_SESSION['id'] == $id){
                     echo "<form id='myprofile_actions' action='choose_deadline.php' method='post'>
                     <input class='submit' type='submit' name='delete' value='Cancel' />
                     <input type='hidden' name='tracking' value='".$tracking."' />
@@ -259,20 +307,31 @@ $count_cancelable = mysqli_num_rows($result);
 		<?php
 		}
 	}
-	else{
+	elseif($_SESSION['id'] == $id){
 		echo "<h4>You currently don't have any training records.</h4>";
 	}
+	else{
+        echo "<h4>No training records.</h4>";
+    }
 	mysqli_close($con);
 		?>
 </table>
 
 <br>
-<form id='download_info' action='download_info.php' method='post'>
-    <input class='submit' type='submit' name='submit' value='Download my personal data from the IVAO <?php echo $division; ?> database!' />
-</form>
-<form id='delete_account' action='delete_account.php' method='post'>
-	<input class='submit' type='submit' name='submit' value='Delete account from the IVAO <?php echo $division; ?> database!' />
-</form>
+<?php
+if($_SESSION['id'] == $id) {
+?>
+    <form id='download_info' action='download_info.php' method='post'>
+        <input class='submit' type='submit' name='submit'
+               value='Download my personal data from the IVAO <?php echo $division; ?> database!'/>
+    </form>
+    <form id='delete_account' action='delete_account.php' method='post'>
+        <input class='submit' type='submit' name='submit'
+               value='Delete my account from the IVAO <?php echo $division; ?> database!'/>
+    </form>
+<?php
+}
+?>
 </div>
 <?php include('footer.php'); ?>
 </div>

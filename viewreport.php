@@ -25,20 +25,19 @@ if($_SESSION['login'] == ''){
 <div id='content'>
 
 <?php
+$tracking = $_GET['tracking'];
 
 if($_SESSION['acces'] == 'ADMIN'){
-	echo "<p><a href='admin.php'>Return to the Admin Center</a></p>";
+	echo "<p><a href='trainingdet.php?tracking=$tracking'>Return to Training Details...</a></p>";
 }
 else{
-	echo "<p><a href='myprofile.php'>Return to your profile page</a></p>";
+	echo "<p><a href='myprofile.php'>Return to your profile page...</a></p>";
 }
 
 $tbl_name = 'training_requests';
 
 $con = mysqli_connect($host, $username, $password) or die('Cannot connect to database: '. mysqli_error($con));
 mysqli_select_db($con,$db_name) or die('Cannot select database: '. mysqli_error($con));
-
-$tracking = $_GET['tracking'];
 
 $sql = "SELECT * FROM $tbl_name WHERE Tracking = '$tracking'";
 $result = mysqli_query($con,$sql);
@@ -64,7 +63,7 @@ echo "
 		</tr>
 		<tr>
 			<td class='tablekey'>
-				ID
+				VID
 			</td>
 			<td class='tablevalue'><a target='blank' href='https://ivao.aero/members/person/details.asp?id=".
 				$row['ID'].
@@ -82,6 +81,14 @@ echo "
 		</tr>
 		<tr>
 			<td class='tablekey'>
+				Current Rating
+			</td>
+			<td class='tablevalue'>".
+                $row['Rating'].
+            "</td>
+		</tr>
+		<tr>
+			<td class='tablekey'>
 				Email
 			</td>
 			<td class='tablevalue'>".
@@ -90,19 +97,19 @@ echo "
 		</tr>
 		<tr>
 			<td class='tablekey'>
-				Rating
-			</td>
-			<td class='tablevalue'>".
-				$row['Rating'].
-			"</td>
-		</tr>
-		<tr>
-			<td class='tablekey'>
-				Airport
+				Location
 			</td>
 			<td class='tablevalue'>".
 				$row['Airport'].
 			"</td>
+		</tr>
+		<tr>
+			<td class='tablekey'>
+				Appointment
+			</td>
+			<td class='tablevalue'>".
+                $row['Deadlines1'].
+            "</td>
 		</tr>
 		<tr>
 			<td class='tablekey'>

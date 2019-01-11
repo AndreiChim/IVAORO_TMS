@@ -56,13 +56,13 @@ $result = mysqli_query($con,$sql) or die(mysqli_error($con));
 			Type
 		</td>
 		<td class='tablekey'>
-			Rating
+			Current Rating
 		</td>
 		<td class='tablekey'>
-			Airport
+			Location
 		</td>
 		<td class='tablekey'>
-			Deadline
+			Appointment
 		</td>
 		<td class='tablekey'>
 			Actions
@@ -94,24 +94,24 @@ $result = mysqli_query($con,$sql) or die(mysqli_error($con));
  		if($row['Trainer'] == $_SESSION['name']){
 			if($row['Chosen'] == 'NO'){
 				if($deadlines1 == 'NA' && $deadlines2 == 'NA' && $deadlines3 == 'NA'){
-					echo "<a href='trainingdet.php?tracking=".$tracking."'><span class='pending'>Propose deadline!</span></a>";
+					echo "<a href='trainingdet.php?tracking=".$tracking."'><span class='pending'>Propose a date!</span></a>";
 				}
 				else{
 					if($deadlines1 != 'NA' && $deadlines2 != 'NA' && $deadlines3 != 'NA'){
-						echo "Proposed deadlines: <select>";
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "<option value='".$deadlines3."'>".$deadlines3."</option>";
 						echo "</select>";
 					}
 					elseif($deadlines1 != 'NA' && $deadlines2 != 'NA'){
-						echo "Proposed deadlines: <select>";
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "</select>";
 					}
 					elseif($deadlines1 != 'NA'){
-						echo "Proposed deadlines: <select>";
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "</select>";
 					}
@@ -134,20 +134,20 @@ $result = mysqli_query($con,$sql) or die(mysqli_error($con));
 				}
 				else{
 					if($deadlines1 != 'NA' && $deadlines2 != 'NA' && $deadlines3 != 'NA'){
-						echo "Proposed deadlines: <select>";
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "<option value='".$deadlines3."'>".$deadlines3."</option>";
 						echo "</select>";
 					}
 					elseif($deadlines1 != 'NA' && $deadlines2 != 'NA'){
-						echo "Proposed deadlines: <select>";
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "</select>";
 					}
 					else{
-						echo "Proposed deadlines: <select>";
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "</select>";
 					}
@@ -212,13 +212,13 @@ $result = mysqli_query($con,$sql) or die(mysqli_error($con));
 			Type
 		</td>
 		<td class='tablekey'>
-			Rating
+			Current Rating
 		</td>
 		<td class='tablekey'>
-			Airport
+			Location
 		</td>
 		<td class='tablekey'>
-			Deadline
+			Appointment
 		</td>
 		<td class='tablekey'>
 			Actions

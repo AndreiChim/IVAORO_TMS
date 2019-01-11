@@ -26,7 +26,7 @@ $training_request = mysqli_fetch_array($result);
 $type1 = $training_request['Type1'];
 
 if($_POST['deadline1'] == '' && $_POST['deadline2'] == '' && $_POST['deadline3'] == ''){
-    echo "<h4>Please enter at least a deadline! <a href='trainingdet.php?tracking=".$tracking."'>Go back...</a></h4>";
+    echo "<h4>Please enter at least one date! <a href='trainingdet.php?tracking=".$tracking."'>Go back...</a></h4>";
 }
 else{
     if(isset($_POST['submit'])){

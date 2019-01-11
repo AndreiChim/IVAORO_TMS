@@ -55,7 +55,7 @@ $result = mysqli_query($con,$sql);
 $row = mysqli_fetch_array($result);
 
 echo
-	"<p><a href=admin.php>Return to the Admin Center</a></p>
+	"<p><a href=admin.php>Return to the Admin Center...</a></p>
 	<table id='trainingdet' border='0'>
 		<tr>
 			<td class='tablekey'>
@@ -75,7 +75,7 @@ echo
 		</tr>
 		<tr>
 			<td class='tablekey'>
-				ID
+				VID
 			</td>
 			<td class='tablevalue'><a target='blank' href='https://ivao.aero/members/person/details.asp?id=".
 				$row['ID'].
@@ -89,29 +89,29 @@ echo
 			</td>
 			<td class='tablevalue'>".
 				$row['Name'].
-			"</td>
+			" (<a target='blank' href='myprofile.php?id=".$row['ID']."'>Show Training History</a>)</td>
+		</tr>
+		<tr>
+			<td class='tablekey'>
+				Current Rating
+			</td>
+			<td class='tablevalue'>".
+                $row['Rating'].
+            "</td>
 		</tr>
 		<tr>
 			<td class='tablekey'>
 				Email
 			</td>
 			<td class='tablevalue'><a href='mailto:".
-				stripslashes($row['Email']).
-			"'>".
-				stripslashes($row['Email']).
-			"</a></td>
+                stripslashes($row['Email']).
+                "'>".
+                stripslashes($row['Email']).
+                "</a></td>
 		</tr>
 		<tr>
 			<td class='tablekey'>
-				Rating
-			</td>
-			<td class='tablevalue'>".
-				$row['Rating'].
-			"</td>
-		</tr>
-		<tr>
-			<td class='tablekey'>
-				Airport
+				Location
 			</td>
 			<td class='tablevalue'>".
 				$row['Airport'].
@@ -127,7 +127,7 @@ echo
 		</tr>
 		<tr>
 			<td class='tablekey'>
-				Deadline(s)
+				Appointment
 			</td>
 			<td class='tablevalue'>";
 
@@ -148,25 +148,25 @@ echo
 					echo "<input class='datepicker' type='text' name='deadline1' /><br>";
 					echo "<input class='datepicker' type='text' name='deadline2' /><br>";
 					echo "<input class='datepicker' type='text' name='deadline3' /><br>";
-					echo "<input class='submit' type='submit' name='submit' value='Propose Deadline(s)!' />
+					echo "<input class='submit' type='submit' name='submit' value='Propose Date(s)!' />
 						</form>";
 				}
 				else{
 					if($deadlines1 != 'NA' && $deadlines2 != 'NA' && $deadlines3 != 'NA'){
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "<option value='".$deadlines3."'>".$deadlines3."</option>";
 						echo "</select>";
 					}
 					elseif($deadlines1 != 'NA' && $deadlines2 != 'NA'){
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "</select>";
 					}
 					else{
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "</select>";
 					}
@@ -186,20 +186,20 @@ echo
 				}
 				else{
 					if($deadlines1 != 'NA' && $deadlines2 != 'NA' && $deadlines3 != 'NA'){
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "<option value='".$deadlines3."'>".$deadlines3."</option>";
 						echo "</select>";
 					}
 					elseif($deadlines1 != 'NA' && $deadlines2 != 'NA'){
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "<option value='".$deadlines2."'>".$deadlines2."</option>";
 						echo "</select>";
 					}
 					else{
-						echo "Proposed deadlines: <select>";	
+						echo "Proposed dates: <select>";
 						echo "<option value='".$deadlines1."'>".$deadlines1."</option>";
 						echo "</select>";
 					}
@@ -214,7 +214,7 @@ echo
 		</tr>
 		<tr>
 			<td class='tablekey'>
-				Deadline Status
+				Appointment Status
 			</td>
 			<td class='tablevalue'>";
 			if($row['Chosen'] == 'YES'){
@@ -232,7 +232,7 @@ echo
 			</td>
 			<td class='tablevalue'>";
 			if($row['ReportStatus'] == 'Filed'){
-					echo "<a href='viewreport.php?tracking=".$tracking."'>".$row['ReportStatus']."</a>";
+					echo "Filed (<a href='viewreport.php?tracking=".$tracking."'>Show Report</a>)";
 				}
 				else{
 					echo "<span class='pending'>".$row['ReportStatus']."</span>";
@@ -241,7 +241,7 @@ echo
 		</tr>
 		<tr>
 			<td class='tablekey'>
-				Start
+				Received
 			</td>
 			<td class='tablevalue'>";
 				echo $row['Time_start'];
@@ -249,7 +249,7 @@ echo
 		</tr>
 		<tr>
 			<td class='tablekey'>
-				End
+				Completed
 			</td>
 			<td class='tablevalue'>";
 				echo $row['Time_end'];
@@ -285,7 +285,7 @@ echo
 					<?php
 					}
 					?>
-					<input class='submit' type='submit' name='cancel-deadline' value='Cancel Deadline' />
+					<input class='submit' type='submit' name='cancel-deadline' value='Cancel Appointment' />
 				<?php
 				}
 			}
