@@ -65,7 +65,7 @@ We are informing you that one of our ".($type1 == "EXAM" ? "examiners": "trainer
 ": "")."
 You should go to the following link, log in with your credentials and choose the time and date most appropriate for you.
 
-".$root_url."myprofile.php
+".$root_url."/myprofile.php
 
 If you do not agree with any of the proposals of the ".($type1 == "EXAM" ? "examiner": "trainer").", reply to this email requesting a new proposal. Please also keep in mind that after you've chosen a date for your session it cannot be changed except with a good reason.
 

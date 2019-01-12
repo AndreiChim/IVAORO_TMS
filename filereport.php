@@ -49,7 +49,7 @@ if(isset($_POST['file-report'])){
 
 Your training has been completed and your trainer has filed a report. Please review it by accessing your personal profile at:
 
-".$root_url."myprofile.php
+".$root_url."/myprofile.php
 
 Should you have any questions or feedback regarding your training, please reply to this email. We will get back to you as soon as possible.
 

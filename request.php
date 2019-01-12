@@ -84,7 +84,7 @@ or else we will refuse to process your exam deadline request here.
 
 If you do not want to perform this exam anymore or if you made this request by mistake, you can go to your profile page at
 
-".$root_url."myprofile.php
+".$root_url."/myprofile.php
 
 and cancel it. Be aware you can only cancel a request by yourself before a trainer has proposed deadlines.
 
