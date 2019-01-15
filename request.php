@@ -67,7 +67,10 @@ if(isset($_POST['submit'])){
         $_SESSION['email'] = $email;
 
         $to = $email;
-        $header = "From: IVAO ".$division_long." <".$mailbox.">" . "\r\n" . "Reply-To: ".$division."-TC@ivao.aero, ".$division."-TAC@ivao.aero, ".$division."-HQ@ivao.aero";
+        $header = "From: IVAO ".$division_long." <".$mailbox.">" . "\r\n" . "Reply-To: ".$division."-TC@ivao.aero\r\n";
+        $header.= "MIME-Version: 1.0\r\n";
+        $header.= "Content-Type: text/plain; charset=ISO-8859-1\r\n";
+        $header.= "X-Priority: 1\r\n";
         if($type1 == "EXAM"){
             $subject = "[Tracking number: " . $tracking . "] IVAO Practical Exam Scheduling: $type2";
 

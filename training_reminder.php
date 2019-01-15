@@ -74,7 +74,10 @@ while($training_request = mysqli_fetch_array($result)){
             $location = $training_request['Airport'];
             $trainer = $training_request['Trainer'];
             $deadlines1 = $training_request['Deadlines1'];
-            $header = "From: IVAO ".$division_long." <".$mailbox.">" . "\r\n" . "Reply-To: ".$division."-TC@ivao.aero, ".$division."-TAC@ivao.aero, ".$division."-HQ@ivao.aero";
+            $header = "From: IVAO ".$division_long." <".$mailbox.">" . "\r\n" . "Reply-To: ".$division."-TC@ivao.aero\r\n";
+            $header.= "MIME-Version: 1.0\r\n";
+            $header.= "Content-Type: text/plain; charset=ISO-8859-1\r\n";
+            $header.= "X-Priority: 1\r\n";
             $subject = "[Tracking number: " . $tracking . "] IVAO ".($type1 == "EXAM" ? "Exam": "Training")." Reminder";
             $message = 
 "Hello ".$name."!
