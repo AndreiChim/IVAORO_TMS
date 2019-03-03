@@ -172,8 +172,7 @@ Comment: $reason
 This email was sent to all $division division trainers. If you would like us to stop sending you such reminders, please reply to this email.
 ";
         $message = wordwrap($message, 70);
-        //$training_staff_emails = array('ro-tc@ivao.aero', 'ro-tac@ivao.aero', 'ro-ta1@ivao.aero', 'ro-adir@ivao.aero');
-        $training_staff_emails = array('ro-tc@ivao.aero');
+        $training_staff_emails = array('ro-tc@ivao.aero', 'ro-tac@ivao.aero', 'ro-ta1@ivao.aero', 'ro-adir@ivao.aero');
         foreach($training_staff_emails as $to){
             mail($to, $subject, $message, $header);
         }
