@@ -151,6 +151,33 @@ You have received this email because you gave your consent to such usage of your
         $message = wordwrap($message, 70);
         // send mail
         mail($to, $subject, $message, $header);
+
+        // Send email notification to all division training staff when a new request comes in
+        $subject = "[Tracking number: $tracking] NEW TMS REQUEST";
+        $message = "
+Hello!
+
+A new request has been submitted in the TMS. Please go to the admin page and assume it if you are available.
+
+Tracking number: $tracking
+Type: $type2 - $type1
+Member: $name ($id)
+Current rating: $rating
+Training Location: $airport
+
+Comment: $reason
+
+---
+
+This email was sent to all $division division trainers. If you would like us to stop sending you such reminders, please reply to this email.
+";
+        $message = wordwrap($message, 70);
+        //$training_staff_emails = array('ro-tc@ivao.aero', 'ro-tac@ivao.aero', 'ro-ta1@ivao.aero', 'ro-adir@ivao.aero');
+        $training_staff_emails = array('ro-tc@ivao.aero');
+        foreach($training_staff_emails as $to){
+            mail($to, $subject, $message, $header);
+        }
+
         
 		echo "<h4>Your training request has been processed.</h4>
 		 <h4>A trainer will contact you shortly.</h4>

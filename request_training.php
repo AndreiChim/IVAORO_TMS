@@ -181,13 +181,12 @@ else{
 			<td class='tablevalue'>
 				<select class='type2' name='airport'>
                     <?php if($_SESSION['division'] != $division){ ?>
-                    <option value='LROP (TWR)'>LROP_TWR - Otopeni Tower</option>
                     <option value='LROP (APP)'>LROP_APP - Bucharest Approach</option>
                     <option value='LRBB'>LRBB_CTR - Bucharest Radar</option>
                     <?php } else{ ?>
 					<option value='LROP'>LROP - Bucharest (Henri Coanda)</option>
-					<option value='LRTR'>LRTR - Timisoara (Traian Vuia)</option>
-					<option value='LRCK'>LRCK - Constanta (Mihail Kogalniceanu)</option>
+					<option value='LRTR'>LRTR - Timisoara</option>
+					<option value='LRCK'>LRCK - Constanta</option>
 					<option value='LRCL'>LRCL - Cluj Napoca</option>
 					<option value='LRBB'>LRBB - Bucharest FIR</option>
                     <?php } ?>
