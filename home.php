@@ -38,10 +38,10 @@
                     Andrei Bubeneck
                 </td>
                 <td class="tablevalue">
-                    ACC
+                    <img src="https://www.ivao.aero/data/images/ratings/atc/7.gif" alt="ACC"/>
                 </td>
                 <td class="tablevalue">
-                    ATP
+                    <img src="https://www.ivao.aero/data/images/ratings/pilot/8.gif" alt="ATP"/>
                 </td>
                 <td class="tablevalue">
                     RO-DIR/RO-TC
@@ -58,10 +58,10 @@
                     Nicolae Podaru
                 </td>
                 <td class="tablevalue">
-                    ADC
+                    <img src="https://www.ivao.aero/data/images/ratings/atc/5.gif" alt="ADC"/>
                 </td>
                 <td class="tablevalue">
-                    SPP
+                    <img src="https://www.ivao.aero/data/images/ratings/pilot/6.gif" alt="SPP"/>
                 </td>
                 <td class="tablevalue">
                     RO-ADIR
@@ -78,10 +78,10 @@
                     Udo Korbanka
                 </td>
                 <td class="tablevalue">
-                    ACC
+                    <img src="https://www.ivao.aero/data/images/ratings/atc/7.gif" alt="ACC"/>
                 </td>
                 <td class="tablevalue">
-                    PP
+                    <img src="https://www.ivao.aero/data/images/ratings/pilot/5.gif" alt="PP"/>
                 </td>
                 <td class="tablevalue">
                     RO-TAC
@@ -98,10 +98,10 @@
                     Lucian Cristea
                 </td>
                 <td class="tablevalue">
-                    APC
+                    <img src="https://www.ivao.aero/data/images/ratings/atc/6.gif" alt="APC"/>
                 </td>
                 <td class="tablevalue">
-                    CP
+                    <img src="https://www.ivao.aero/data/images/ratings/pilot/7.gif" alt="CP"/>
                 </td>
                 <td class="tablevalue">
                     RO-TA1
@@ -118,10 +118,10 @@
                     Ionut Trisca
                 </td>
                 <td class="tablevalue">
-                    ADC
+                    <img src="https://www.ivao.aero/data/images/ratings/atc/5.gif" alt="ADC"/>
                 </td>
                 <td class="tablevalue">
-                    PP
+                    <img src="https://www.ivao.aero/data/images/ratings/pilot/5.gif" alt="PP"/>
                 </td>
                 <td class="tablevalue">
                     RO-T01
