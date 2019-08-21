@@ -12,8 +12,7 @@
 			This will enable you to always have a complete overview of your own training history. <br><br>
 			If you have any questions about trainings, exams or GCA, do not hesitate to contact our training department:
         </h4>
-        <br><br>
-        <table>
+        <table id="mytrainings" class="admintrainings">
             <tr>
                 <td class="tablekey">
                     Name
@@ -48,7 +47,7 @@
                     RO-DIR/RO-TC
                 </td>
                 <td class="tablevalue">
-                    Examiner/Trainer
+                    Examiner/ Trainer
                 </td>
                 <td class="tablevalue">
                     ro-tc@ivao.aero
@@ -68,7 +67,7 @@
                     RO-ADIR
                 </td>
                 <td class="tablevalue">
-                    Examiner/Trainer
+                    Examiner/ Trainer
                 </td>
                 <td class="tablevalue">
                     ro-adir@ivao.aero
@@ -88,7 +87,7 @@
                     RO-TAC
                 </td>
                 <td class="tablevalue">
-                    Examiner/Trainer
+                    Examiner/ Trainer
                 </td>
                 <td class="tablevalue">
                     ro-tac@ivao.aero
@@ -108,7 +107,7 @@
                     RO-TA1
                 </td>
                 <td class="tablevalue">
-                    Examiner/Trainer
+                    Examiner/ Trainer
                 </td>
                 <td class="tablevalue">
                     ro-ta1@ivao.aero
@@ -141,21 +140,20 @@
             RO-TA1 <a href='mailto:ro-ta1@ivao.aero'>Lucian Cristea</a><br>
             RO-T01 <a href='mailto:ro-t01@ivao.aero'>Ionut Trisca</a><br>
         -->
-            <br>
+        <h4>
 			For questions about this system, contact 
 			<a href='mailto:ro-tc@ivao.aero'>ro-tc@ivao.aero</a>.
+        </h4>
 		<h4>
 			Enjoy!
 		</h4>
-        <h4>
-            <a href="https://<?php echo $division; ?>.ivao.aero">Return to the main division website...</a>
-        </h4>
-
 		<div id='calendar_frame'>
 			<iframe src='calendar/index.php' style='width:960px; height:660px; border-style: none;'>
 			</iframe>
 		</div>
-
+        <h4>
+            <a href="https://<?php echo $division; ?>.ivao.aero">Return to the main division website...</a>
+        </h4>
 
 <!--		<fieldset id='opinion'>
 			<legend>Do you like this website?</legend>
