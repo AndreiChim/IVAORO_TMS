@@ -130,8 +130,8 @@ and cancel it. Be aware you can only cancel a request by yourself before a train
 
 While you are waiting for your training, you should browse the relevant documentation available at
 
-https://www.ivao.aero/training/atc/TOC_documents.asp and
-https://www.ivao.aero/training/pilot/TOC_documents.asp
+http://mediawiki.ivao.aero/index.php?title=Training_Documentation and
+http://ro.ivao.aero
 
 in order to familiarize yourself with the skills you are going to practice during the session.
 
@@ -172,7 +172,7 @@ Comment: $reason
 This email was sent to all $division division trainers. If you would like us to stop sending you such reminders, please reply to this email.
 ";
         $message = wordwrap($message, 70);
-        $training_staff_emails = array('ro-tc@ivao.aero', 'ro-tac@ivao.aero', 'ro-ta1@ivao.aero', 'ro-adir@ivao.aero');
+        $training_staff_emails = array('ro-tc@ivao.aero', 'ro-tac@ivao.aero', 'ro-ta1@ivao.aero', 'ro-adir@ivao.aero', 'ro-t01@ivao.aero', 'ro-t02@ivao.aero');
         foreach($training_staff_emails as $to){
             mail($to, $subject, $message, $header);
         }
