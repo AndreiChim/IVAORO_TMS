@@ -35,26 +35,6 @@
             </tr>
             <tr>
                 <td class="tablevalue">
-                    Andrei Bubeneck
-                </td>
-                <td class="tablevalue">
-                    <img src="https://www.ivao.aero/data/images/ratings/atc/7.gif" alt="ACC"/>
-                </td>
-                <td class="tablevalue">
-                    <img src="https://www.ivao.aero/data/images/ratings/pilot/8.gif" alt="ATP"/>
-                </td>
-                <td class="tablevalue">
-                    RO-DIR/RO-TC
-                </td>
-                <td class="tablevalue">
-                    Examiner/ Trainer
-                </td>
-                <td class="tablevalue">
-                    ro-tc@ivao.aero
-                </td>
-            </tr>
-            <tr>
-                <td class="tablevalue">
                     Nicolae Podaru
                 </td>
                 <td class="tablevalue">
@@ -71,6 +51,26 @@
                 </td>
                 <td class="tablevalue">
                     ro-adir@ivao.aero
+                </td>
+            </tr>
+            <tr>
+                <td class="tablevalue">
+                    Andrei Bubeneck
+                </td>
+                <td class="tablevalue">
+                    <img src="https://www.ivao.aero/data/images/ratings/atc/7.gif" alt="ACC"/>
+                </td>
+                <td class="tablevalue">
+                    <img src="https://www.ivao.aero/data/images/ratings/pilot/8.gif" alt="ATP"/>
+                </td>
+                <td class="tablevalue">
+                    RO-TC
+                </td>
+                <td class="tablevalue">
+                    Examiner/ Trainer
+                </td>
+                <td class="tablevalue">
+                    ro-tc@ivao.aero
                 </td>
             </tr>
             <tr>
@@ -131,6 +131,26 @@
                 </td>
                 <td class="tablevalue">
                     ro-t01@ivao.aero
+                </td>
+            </tr>
+            <tr>
+                <td class="tablevalue">
+                    Marvin Rochow
+                </td>
+                <td class="tablevalue">
+                    <img src="https://www.ivao.aero/data/images/ratings/atc/5.gif" alt="ADC"/>
+                </td>
+                <td class="tablevalue">
+                    <img src="https://www.ivao.aero/data/images/ratings/pilot/5.gif" alt="PP"/>
+                </td>
+                <td class="tablevalue">
+                    RO-T02
+                </td>
+                <td class="tablevalue">
+                    Trainer
+                </td>
+                <td class="tablevalue">
+                    ro-t02@ivao.aero
                 </td>
             </tr>
         </table>
