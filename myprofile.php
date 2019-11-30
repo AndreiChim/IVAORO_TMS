@@ -176,6 +176,11 @@ $count_cancelable = mysqli_num_rows($result);
             Please meet with the trainer at the set time and date on the IVAO <?php echo $division_long; ?> Discord server. If you haven't already joined the server, please use this invite link: <a href='<?php echo $discord_link; ?>' target="_blank"><?php echo $discord_link; ?></a>
         </span>
     </p>
+    <p>
+        <span class='error'>
+            Make sure to check your email spam folder regularly as some automated messages sent by the TMS could be misidentified.
+        </span>
+    </p>
 </fieldset>
 <br>
 
