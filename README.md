@@ -3,7 +3,7 @@ TRAINING MANAGEMENT SYSTEM (TMS) v2.0
 for the Romanian Division of the 
 International Virtual Aviation Organisation (ro.ivao.aero)
 
-=================================================================================
+===============================================================================
 
 Live version: https://ro.ivao.aero/tms
 
@@ -13,15 +13,15 @@ Contact: wilhelm.andrei.bubeneck@ivao.aero
 
 Please send me an email if you have any questions.
 
-=================================================================================
+===============================================================================
 
 PROVIDED AS IS WITHOUT ANY WARRANTY! USE AT YOUR OWN RISK!
 
-=================================================================================
+===============================================================================
 
 LICENSE: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
-=================================================================================
+===============================================================================
 
 Configuration instructions for use in other IVAO divisions:
 
