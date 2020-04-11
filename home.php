@@ -78,13 +78,13 @@
             </tr>
             <tr>
                 <td class="tablevalue">
-                    Udo Korbanka
+                    Marvin Rochow
                 </td>
                 <td class="tablevalue">
-                    <img src="https://www.ivao.aero/data/images/ratings/atc/7.gif" alt="ACC"/>
+                    <img src="https://www.ivao.aero/data/images/ratings/atc/6.gif" alt="APC"/>
                 </td>
                 <td class="tablevalue">
-                    <img src="https://www.ivao.aero/data/images/ratings/pilot/5.gif" alt="PP"/>
+                    <img src="https://www.ivao.aero/data/images/ratings/pilot/6.gif" alt="SPP"/>
                 </td>
                 <td class="tablevalue">
                     RO-TAC
@@ -134,26 +134,6 @@
                 </td>
                 <td class="tablevalue">
                     ro-t01@ivao.aero
-                </td>
-            </tr>
-            <tr>
-                <td class="tablevalue">
-                    Marvin Rochow
-                </td>
-                <td class="tablevalue">
-                    <img src="https://www.ivao.aero/data/images/ratings/atc/5.gif" alt="ADC"/>
-                </td>
-                <td class="tablevalue">
-                    <img src="https://www.ivao.aero/data/images/ratings/pilot/5.gif" alt="PP"/>
-                </td>
-                <td class="tablevalue">
-                    RO-T02
-                </td>
-                <td class="tablevalue">
-                    Trainer
-                </td>
-                <td class="tablevalue">
-                    ro-t02@ivao.aero
                 </td>
             </tr>
         </table>
@@ -223,13 +203,13 @@
             </tr>
             <tr>
                 <td class="tablevalue">
-                    187023
+                    494745
                 </td>
                 <td class="tablevalue">
-                    <img src="https://www.ivao.aero/data/images/ratings/atc/7.gif" alt="ACC"/>
+                    <img src="https://www.ivao.aero/data/images/ratings/atc/6.gif" alt="APC"/>
                 </td>
                 <td class="tablevalue">
-                    <img src="https://www.ivao.aero/data/images/ratings/pilot/5.gif" alt="PP"/>
+                    <img src="https://www.ivao.aero/data/images/ratings/pilot/6.gif" alt="SPP"/>
                 </td>
                 <td class="tablevalue">
                     RO-TAC
@@ -240,7 +220,6 @@
                 <td class="tablevalue">
                     ro-tac@ivao.aero
                 </td>
-            </tr>
             <tr>
                 <td class="tablevalue">
                     361327
@@ -281,25 +260,6 @@
                     ro-t01@ivao.aero
                 </td>
             </tr>
-            <tr>
-                <td class="tablevalue">
-                    494745
-                </td>
-                <td class="tablevalue">
-                    <img src="https://www.ivao.aero/data/images/ratings/atc/5.gif" alt="ADC"/>
-                </td>
-                <td class="tablevalue">
-                    <img src="https://www.ivao.aero/data/images/ratings/pilot/5.gif" alt="PP"/>
-                </td>
-                <td class="tablevalue">
-                    RO-T02
-                </td>
-                <td class="tablevalue">
-                    Trainer
-                </td>
-                <td class="tablevalue">
-                    ro-t02@ivao.aero
-                </td>
             </tr>
         </table>
 
