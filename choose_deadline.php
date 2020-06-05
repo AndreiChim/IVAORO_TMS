@@ -51,49 +51,12 @@ if(isset($_POST['submit'])){
 	$result = mysqli_query($con,$sql);
 	
 	//ADD EVENT TO CALENDAR
-    if(($type1 == 'practical' || $type1 == 'EXAM') && ($type2 == 'First Time as ATC on IVAO' || $type2 == 'ADC' || $type2 == 'APC' || $type2 == 'ACC' || $type2 == 'SEC' || $type2 == 'GCA training' || $type2 == 'GCA checkout' || $type2 == 'Advanced ATC topics')){
+    if(($type1 == 'practical' || $type1 == 'EXAM') && ($type2 == 'ADC' || $type2 == 'APC' || $type2 == 'ACC' || $type2 == 'SEC' || $type2 == 'GCA training' || $type2 == 'GCA checkout')){
         $deadline = explode(" ",$deadline);
         $date = explode(".", $deadline[0]);
 
 
         switch ($type2) {
-            case 'Introduction to IVAO':
-                $rating = "<img src='https://ivao.aero/data/images/ratings/pilot/2.gif' alt='FS1'>";
-                break;
-
-            case 'First Flight on IVAO':
-                $rating = "<img src='https://ivao.aero/data/images/ratings/pilot/2.gif' alt='FS1'>";
-                break;
-
-            case 'First Time as ATC on IVAO':
-                $rating = "<img src='https://ivao.aero/data/images/ratings/atc/2.gif' alt='AS1'>";
-                break;
-
-            case 'Introduction to phraseology':
-                $rating = "<img src='https://ivao.aero/data/images/ratings/pilot/2.gif' alt='FS1'>";
-                break;
-                
-            case 'Phraseology practice':
-                if($_SESSION['atc_rating'] == 'ADC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/5.gif' alt='ADC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'APC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/6.gif' alt='APC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'ACC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/7.gif' alt='ACC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'SEC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/8.gif' alt='SEC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'SAI'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/9.gif' alt='SAI'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'CAI'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/10.gif' alt='CAI'>";
-                }
-                break;
-
             case 'ADC':
                 $rating = "<img src='https://ivao.aero/data/images/ratings/atc/5.gif' alt='ADC'>";
                 break;
@@ -110,87 +73,12 @@ if(isset($_POST['submit'])){
                 $rating = "<img src='https://ivao.aero/data/images/ratings/atc/8.gif' alt='SEC'>";
                 break;
 
-            case 'PP':
-                $rating = "<img src='https://ivao.aero/data/images/ratings/pilot/5.gif' alt='PP'>";
-                break;
-
-            case 'SPP':
-                $rating = "<img src='https://ivao.aero/data/images/ratings/pilot/6.gif' alt='SPP'>";
-                break;
-
-            case 'CP':
-                $rating = "<img src='https://ivao.aero/data/images/ratings/pilot/7.gif' alt='CP'>";
-                break;
-
-            case 'ATP':
-                $rating = "<img src='https://ivao.aero/data/images/ratings/pilot/8.gif' alt='ATP'>";
-                break;
-
-            case 'Advanced ATC topics':
-                if($_SESSION['atc_rating'] == 'ADC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/5.gif' alt='ADC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'APC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/6.gif' alt='APC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'ACC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/7.gif' alt='ACC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'SEC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/8.gif' alt='SEC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'SAI'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/9.gif' alt='SAI'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'CAI'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/10.gif' alt='CAI'>";
-                }
-                break;
-
-            case 'Advanced Flying topics':
-                $rating = "<img src='https://ivao.aero/data/images/ratings/pilot/7.gif' alt='CP'>";
-                break;
-
             case 'GCA training':
-                if($_SESSION['atc_rating'] == 'ADC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/5.gif' alt='ADC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'APC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/6.gif' alt='APC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'ACC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/7.gif' alt='ACC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'SEC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/8.gif' alt='SEC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'SAI'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/9.gif' alt='SAI'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'CAI'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/10.gif' alt='CAI'>";
-                }
+                $rating = "<img src='gca.gif' alt='GCA'>";
                 break;
                 
             case 'GCA checkout':
-                if($_SESSION['atc_rating'] == 'ADC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/5.gif' alt='ADC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'APC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/6.gif' alt='APC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'ACC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/7.gif' alt='ACC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'SEC'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/8.gif' alt='SEC'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'SAI'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/9.gif' alt='SAI'>";
-                }
-                elseif($_SESSION['atc_rating'] == 'CAI'){
-                    $rating = "<img src='https://ivao.aero/data/images/ratings/atc/10.gif' alt='CAI'>";
-                }
+                $rating = "<img src='gca.gif' alt='GCA'>";
                 break;
 
             default:
